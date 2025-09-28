@@ -19,7 +19,7 @@ const paths = {
 function sassCompile(cb) {
   return src(paths.sass, { sourcemaps: true }) // ソースマップを有効にしてSassファイルを読み込む
     .pipe(plumber()) // エラー発生時にGulpが停止するのを防ぐ
-    .pipe(sass({ outputStyle: 'expanded' })) // Sassをコンパイル (outputStyle: 'compressed'で圧縮も可能)
+    .pipe(sass({ outputStyle: 'expanded' })) // Sassをコンパイル ※後の可読性を考慮しexpanded設定 (outputStyle: 'compressed'で圧縮も可能)
     .pipe(dest(paths.cssDest, { sourcemaps: '.' })); // コンパイル後のCSSを出力し、ソースマップを同じ場所に保存
   // タスク完了を示すコールバック関数は、return src... でストリームを返す場合は省略できます
 }
