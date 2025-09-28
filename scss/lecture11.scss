@@ -1,0 +1,29 @@
+main {
+  width: 1000px;
+  margin: 0 auto;
+
+  // Sassの特徴：配下の要素は入れ子構造で記述可能
+  section {
+    padding: 10px;
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    // クラス付エレメントも入れ子可
+    p.note {
+      color: #f00;
+    }
+
+    ul {
+      margin-bottom: 20px;
+      li {
+        margin-left: 20px;
+      }
+    }
+  }
+}
