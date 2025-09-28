@@ -6,4 +6,4 @@
 
 ## 使用教材
 
-- [CSS を効率的に書く！フロントエンドエンジニアのための「Sass」講座 ~基礎から実践まで~](https://www.udemy.com/course/sass-for-frontend-engineer/learn/lecture/50915727#notes)
+- [CSS を効率的に書く！フロントエンドエンジニアのための「Sass」講座 ～基礎から実践まで～](https://www.udemy.com/course/sass-for-frontend-engineer/learn/lecture/50915727#notes)
