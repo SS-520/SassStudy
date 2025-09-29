@@ -1,0 +1,46 @@
+/* @at-rootについて */
+.block {
+  .element1 {
+    width: 800px;
+  }
+
+  // 1つのエレメントに適用する場合
+  @at-root .element2 {
+    width: 1000px;
+  }
+
+  // 複数のエレメントに適用する場合
+  @at-root {
+    .element3 {
+      width: 1050px;
+    }
+    .element4 {
+      width: 1100px;
+    }
+  }
+
+  .element5 {
+    width: 500px;
+  }
+
+  // メディアクエリ内でも使える
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    @at-root .item {
+      margin-bottom: 30px;
+      border-bottom: 1px double #666;
+    }
+    // メディアクエリの外に出したい場合
+    @at-root (without: media) {
+      .item {
+        border-bottom: 1px double #f6f;
+      }
+    }
+    // メディアクエリの中に残したい場合
+    @at-root (with: media) {
+      .item {
+        background-color: #6f6;
+      }
+    }
+  }
+}
