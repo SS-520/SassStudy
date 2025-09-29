@@ -1,0 +1,36 @@
+/* メディアクエリのネストについて */
+
+#main {
+  width: 1024px;
+  margin: 0 auto;
+
+  // メディアクエリをネスト
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+
+    // 更にネスト可能（769～1024px対象）
+    @media screen and (max-width: 1024px) {
+      width: 800px;
+    }
+  }
+
+  // 子要素の指定＋メディアクエリ設定も可能
+  h1 {
+    font-size: 1.5rem;
+    @media screen and (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// 画面幅以外のクエリも可能
+#header {
+  height: 100px;
+  border-bottom: 1px solid #999;
+
+  // 印刷時は非表示にしたい
+  @media print {
+    display: none;
+  }
+}
