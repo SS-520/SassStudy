@@ -1,0 +1,77 @@
+/* 親セレクタの参照方法 */
+// 親クラスを表す="&"を用いる
+
+.btn {
+  display: block;
+  border-radius: 5px;
+  width: 80px;
+  height: 40px;
+
+  // .btnかつ.redの書き方
+  &.red {
+    background: #f00;
+  }
+  &.green {
+    background: #0f0;
+  }
+}
+
+/* 親セレクタを辿る */
+aside {
+  width: 240px;
+
+  // 子要素→ネスト
+  dev {
+    display: block;
+  }
+  .menu {
+    margin-bottom: 20px;
+  }
+
+  // 親セレクタを子要素側から指定
+  // css→ body#top aside
+  // 指定したい親セレクタ &（大元のセレクタを＆に代える）
+  body#top & {
+    width: 300px;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  // 擬似クラス
+  // a:hover{}
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* BEM記法で命名したセレクタ */
+.about {
+  width: 500px;
+
+  // 親セレクタ参照は複数使用可能→任意の段階まで深くできる
+  & & &__item {
+    font-size: xx-large;
+  }
+
+  // about__itemを表す
+  &__item {
+    margin-bottom: 20px;
+
+    // about__item-***を表す
+    &-ttl {
+      color: #0ff;
+    }
+    &-txt {
+      font-weight: bold;
+    }
+    &-link {
+      font-style: italic;
+
+      &--red {
+        color: #f00;
+      }
+    }
+  }
+}

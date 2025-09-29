@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/lecture11.css" />
     <link rel="stylesheet" href="/css/lecture12.css" />
+    <link rel="stylesheet" href="/css/lecture13.css" />
     <title>Udemy Sass Sample</title>
   </head>
-  <body>
+  <body id="top">
+    <!-- lecture13.css用に id:top追加 -->
     <main id="main">
       <section>
         <h1>見出し１</h1>
@@ -26,7 +28,31 @@
         <h1>見出し１</h1>
         <p>段落２</p>
         <p class="note">注意書き</p>
+        <!-- lecture13.css用↓ -->
+        <button class="btn">ボタン</button>
+        <button class="btn red">ボタン赤</button>
+        <button class="btn green">ボタン緑</button>
+        <aside>
+          <dev>aside dev1</dev>
+          <dev class="menu">aside dev2 class:menu</dev>
+          <dev>aside dev3</dev>
+          <a>Link</a>
+        </aside>
       </section>
+      <!-- BEM記法でクラスを命名した場合-->
+      <section class="about">
+        <div class="about">
+          <p class="about__item">BEM親２つ</p>
+        </div>
+        <div class="about__item">
+          <h2 class="about__item-ttl">BEMタイトル</h2>
+          <p class="about__item-txt">BEMテキスト</p>
+          <a href="#" class="about__item-link about__item-link--red"
+            >BEM LINK</a
+          >
+        </div>
+      </section>
+      <!-- lecture13.css用↑ -->
     </main>
   </body>
 </html>
