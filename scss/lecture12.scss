@@ -1,0 +1,18 @@
+/* 子セレクタ以外の隣接セレクタ */
+ul {
+  li {
+    + li {
+      // ul>liの隣接セレクタを指定
+      border: 1px solid #666;
+    }
+    ~ li {
+      // 間接セレクタ
+      color: #f0f;
+    }
+
+    > dev.directlyUnder {
+      // 直下セレクタ
+      background: #ccc;
+    }
+  }
+}

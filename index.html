@@ -4,23 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/lecture11.css" />
+    <link rel="stylesheet" href="/css/lecture12.css" />
+    <link rel="stylesheet" href="/css/lecture13.css" />
+    <link rel="stylesheet" href="/css/lecture14.css" />
+    <link rel="stylesheet" href="/css/lecture15.css" />
+    <link rel="stylesheet" href="/css/lecture16.css" />
     <title>Udemy Sass Sample</title>
   </head>
-  <body>
+  <body id="top">
+    <!-- lecture13.css用に id:top追加 -->
     <main id="main">
       <section>
-        <h1>見出し１</h1>
+        <h1 id="header">見出し１</h1>
+        <!-- lecture15.css用にid:header追加 -->
         <p>段落１</p>
         <ul>
           <li>リスト１</li>
           <li>リスト２</li>
+          <li>リスト３</li>
+          <li><dev class="directlyUnder">リスト内dev１</dev></li>
+          <li>
+            <dev><dev class="directlyUnder">リスト内dev２</dev></dev>
+          </li>
         </ul>
       </section>
       <section>
         <h1>見出し１</h1>
         <p>段落２</p>
         <p class="note">注意書き</p>
+        <!-- lecture13.css用↓ -->
+        <button class="btn">ボタン</button>
+        <button class="btn red">ボタン赤</button>
+        <button class="btn green">ボタン緑</button>
+        <aside>
+          <dev>aside dev1</dev>
+          <dev class="menu">aside dev2 class:menu</dev>
+          <dev>aside dev3</dev>
+          <a>Link</a>
+        </aside>
       </section>
+      <!-- BEM記法でクラスを命名した場合-->
+      <section class="about">
+        <div class="about">
+          <p class="about__item">BEM親２つ</p>
+        </div>
+        <div class="about__item">
+          <h2 class="about__item-ttl">BEMタイトル</h2>
+          <p class="about__item-txt">BEMテキスト</p>
+          <a href="#" class="about__item-link about__item-link--red"
+            >BEM LINK</a
+          >
+        </div>
+      </section>
+      <!-- lecture13.css用↑ -->
+      <!-- lecture14.css用↓ -->
+      <section>
+        <div class="boder-box">boder-box</div>
+        <div class="no-bottom-boder1">no-bottom-boder1</div>
+        <div class="no-bottom-boder2">no-bottom-boder2</div>
+      </section>
+      <!-- lecture14.css用↑ -->
+      <!-- lecture16.css用↓ -->
+      <section class="block">
+        <div class="element1">
+          element1
+          <div class="item">element1-item</div>
+        </div>
+        <div class="element2">element2</div>
+        <div class="element3">element3</div>
+        <div class="element4">element4</div>
+        <div class="element5">element5</div>
+      </section>
+      <div class="element2">div-element2</div>
+      <div class="element1"><dix class="item">div-element1-item</dix></div>
+      <!-- lecture16.css用↑ -->
     </main>
   </body>
 </html>

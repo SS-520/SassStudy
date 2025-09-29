@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/* 子セレクタ以外の隣接セレクタ */
+ul li + li {
+  border: 1px solid #666;
+}
+ul li ~ li {
+  color: #f0f;
+}
+ul li > dev.directlyUnder {
+  background: #ccc;
+}/*# sourceMappingURL=lecture12.css.map */

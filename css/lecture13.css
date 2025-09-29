@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* 親セレクタの参照方法 */
+.btn {
+  display: block;
+  border-radius: 5px;
+  width: 80px;
+  height: 40px;
+}
+.btn.red {
+  background: #f00;
+}
+.btn.green {
+  background: #0f0;
+}
+
+/* 親セレクタを辿る */
+aside {
+  width: 240px;
+}
+aside dev {
+  display: block;
+}
+aside .menu {
+  margin-bottom: 20px;
+}
+body#top aside {
+  width: 300px;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* BEM記法で命名したセレクタ */
+.about {
+  width: 500px;
+}
+.about .about .about__item {
+  font-size: xx-large;
+}
+.about__item {
+  margin-bottom: 20px;
+}
+.about__item-ttl {
+  color: #0ff;
+}
+.about__item-txt {
+  font-weight: bold;
+}
+.about__item-link {
+  font-style: italic;
+}
+.about__item-link--red {
+  color: #f00;
+}/*# sourceMappingURL=lecture13.css.map */

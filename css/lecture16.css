@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* @at-rootについて */
+.block .element1 {
+  width: 800px;
+}
+.element2 {
+  width: 1000px;
+}
+
+.element3 {
+  width: 1050px;
+}
+
+.element4 {
+  width: 1100px;
+}
+
+.block .element5 {
+  width: 500px;
+}
+@media screen and (max-width: 768px) {
+  .block {
+    width: 100%;
+  }
+  .item {
+    margin-bottom: 30px;
+    border-bottom: 1px double #666;
+  }
+}
+.block .item {
+  border-bottom: 1px double #f6f;
+}
+@media screen and (max-width: 768px) {
+  .item {
+    background-color: #6f6;
+  }
+}/*# sourceMappingURL=lecture16.css.map */
