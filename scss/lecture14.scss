@@ -1,0 +1,44 @@
+/* プロパティのネスト方法 */
+div.boder-box {
+  // 例：boder-***を指定
+  border: {
+    top: 2px solid #000;
+
+    // border-bottom-width
+    // border-bottom-style
+    // border-bottom-color
+    // 共通ワード以下をネストで管理可能
+    bottom: {
+      width: 5px;
+      style: dotted;
+      color: #f00;
+    }
+
+    radius: 5px;
+  }
+}
+
+// CSSでの書き方
+// .no-bottom-boder1 {
+//   border-top: 1px solid #666;
+//   border-right: 1px solid #666;
+//   border-left: 1px solid #666;
+// }
+div.no-bottom-boder1 {
+  border: {
+    top: 1px solid #666;
+    right: 1px solid #666;
+    left: 1px solid #666;
+  }
+}
+
+// .no-bottom-boder2 {
+//   border: 1px solid #666;
+//   border-bottom: 0;
+// }
+div.no-bottom-boder2 {
+  border: 1px solid #f66 {
+    // プロパティの設定を書いた後{}でネスト先を記述
+    bottom: 0;
+  }
+}
