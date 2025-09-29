@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* Sassにおける変数の基本 */
+/* カラーコード#dcafb9を変数pinkに代入して宣言 */
+.boder-box {
+  border: 1px solid #dcafb9;
+}
+
+.color-box {
+  background: #dcafb9;
+}/*# sourceMappingURL=lecture18.css.map */

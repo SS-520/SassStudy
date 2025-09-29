@@ -1,0 +1,25 @@
+/* Sassにおける変数の基本 */
+
+//   CSS記法
+// ・共通の色を持つstyle
+//   .boder-box {
+//     border: 1px solid #dcafb9;
+//   }
+
+//   .color-box {
+//     background: #dcafb9;
+//   }
+
+// 変数ルール：半角英数字,-,_
+// 文頭数字はエラー
+// 全角英数,日本語（マルチバイト文字）も使用上可
+/* カラーコード#dcafb9を変数pinkに代入して宣言 */
+$pink: #dcafb9;
+
+.boder-box {
+  border: 1px solid $pink;
+}
+
+.color-box {
+  background: $pink;
+}
