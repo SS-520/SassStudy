@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* 変数スコープ */
+section {
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+section p {
+  padding-top: 30px;
+}
+
+footer {
+  padding: 50px;
+}/*# sourceMappingURL=lecture19.css.map */

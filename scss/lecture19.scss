@@ -1,0 +1,44 @@
+/* 変数スコープ */
+
+// ＊変数は宣言後のコードに適用
+// ＊ルールセットの外部で宣言：グローバル変数
+// ＊ルールセットの内部で宣言：ローカル変数
+// ＊異なるスコープ同士での変数宣言→別スコープ内なので同じ変数名で宣言可能
+
+// 変数宣言（グローバル変数）
+$val-10px: 10px;
+
+// 変数宣言（グローバル変数）
+$value: 100px;
+
+section {
+  margin-top: $val-10px;
+  // 後で宣言されてるので$val-10pxは使用できるが$val-20pxは使用できない
+
+  margin-bottom: $value; // 100px
+  // 前行以前で宣言されているので、グローバル変数$valueが適用される
+
+  $value: 30px; // section内でのみ使用できるローカル変数／この行以降適用
+  $value-localScope: 80px; // section内でのみ使用できるローカル変数／この行以降適用
+
+  p {
+    padding-top: $value; //30px
+    // 所属スコープ内で宣言された変数なので使用可能
+    // padding-bottom: $val-20px;
+    // 後の行で記述されている変数「$val-20px」なので読み込めない
+  }
+}
+
+// 変数宣言
+$val-20px: 20px;
+//  section{}スコープ外なので、section内ローカル変数「$val-20pxLS」は使用できない
+
+article {
+  // margin-top: $value-localScope;
+  // 別スコープ（section）で宣言された変数だから参照できない
+}
+
+footer {
+  $val-30pxLS: 50px;
+  padding: $val-30pxLS; //50pxが適用
+}
