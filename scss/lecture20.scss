@@ -1,0 +1,39 @@
+/* 演算の基本 */
+@use 'sass:math'; // math.div()を使用するためのモジュールを読み込む
+
+// 計算式の1つ目の数値に単位を書けば2つ目以降は単位省略可
+// 変数との併用が実態
+$width-basic: 500px;
+$width-operation: 3;
+
+// 足し算
+.calc-add {
+  width: 50px + 3px;
+}
+
+// 引き算 ※減らす値と「-」の間は要スペース（-nという数値扱いになる）
+.calc-subtraction {
+  width: 50px - 3;
+}
+
+// 掛け算
+.calc-mult {
+  width: $width-basic * 3;
+}
+
+// 割り算 ※()で括る必要有
+.calc-division {
+  // width: (50px / 3);  // Dart Sass 2.0.0 で廃止予定の記法
+  width: math.div($width-basic, $width-operation); // 現在の推奨記法
+  margin-top: math.div($width-basic, $width-operation) + $width-basic; // 複数の計算でも使用可能
+}
+
+// 剰余計算（余り）
+.calc-surplus {
+  width: $width-basic % $width-operation;
+}
+
+// 文字列結合
+.calc-connect {
+  content: '文字列'+'結合';
+}

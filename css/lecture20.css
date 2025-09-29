@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/* 演算の基本 */
+.calc-add {
+  width: 53px;
+}
+
+.calc-subtraction {
+  width: 47px;
+}
+
+.calc-mult {
+  width: 1500px;
+}
+
+.calc-division {
+  width: 166.6666666667px;
+  margin-top: 666.6666666667px;
+}
+
+.calc-surplus {
+  width: 2px;
+}
+
+.calc-connect {
+  content: "文字列結合";
+}/*# sourceMappingURL=lecture20.css.map */
