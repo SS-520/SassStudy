@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* □ lecture22-1の読み込み↓ */
+/* ＊ lecture22-1の中身↓ */
+section p {
+  margin-bottom: 20px;
+}
+
+#localID p {
+  /* ★_lecture22-2.scssから呼び出したstyle */
+  margin-bottom: 10px;
+}
+.note {
+  /* ★_lecture22-2.scssから呼び出したstyle */
+  /* @at-rootを使うと、全てすっ飛ばした親の外のセレクタになる↓ */
+  color: #00f;
+  /* @at-rootを使うと、全てすっ飛ばした親の外のセレクタになる↑ */
+}
+
+#localID p:hover {
+  /* ★_lecture22-2.scssから呼び出したstyle */
+  /* & で親を辿る↓ */
+  text-decoration: dotted;
+  /* & で親を辿る↑ */
+}
+#contents #localID p {
+  /* ★_lecture22-2.scssから呼び出したstyle */
+  /* & の位置に親のセレクタが設定される↓ */
+  text-decoration: dotted;
+  /* & の位置に親のセレクタが設定される↑ */
+}
+
+/* ＊ lecture22-1の中身↑ */
+/* □ lecture22-1の読み込み↑ */
+/* 
+   ＊@useはネスト内で使用不可
+   ＊@importも非推奨
+   ＊今後のレクチャで出てくる名前空間やミックスインで対処可能になる
+ */
+#contents {
+  /* ◇ lecture22-1のネスト読み込み↓ */
+  /* ＊ lecture22-1の中身↓ */
+}
+#contents section p {
+  margin-bottom: 20px;
+}
+#contents #localID p {
+  /* ★_lecture22-2.scssから呼び出したstyle */
+  margin-bottom: 10px;
+}
+.note {
+  /* ★_lecture22-2.scssから呼び出したstyle */
+  /* @at-rootを使うと、全てすっ飛ばした親の外のセレクタになる↓ */
+  color: #00f;
+  /* @at-rootを使うと、全てすっ飛ばした親の外のセレクタになる↑ */
+}
+
+#contents #localID p:hover {
+  /* ★_lecture22-2.scssから呼び出したstyle */
+  /* & で親を辿る↓ */
+  text-decoration: dotted;
+  /* & で親を辿る↑ */
+}
+#contents #contents #localID p {
+  /* ★_lecture22-2.scssから呼び出したstyle */
+  /* & の位置に親のセレクタが設定される↓ */
+  text-decoration: dotted;
+  /* & の位置に親のセレクタが設定される↑ */
+}
+#contents {
+  /* ＊ lecture22-1の中身↑ */
+  /* ◇ lecture22-1のネスト読み込み↑ */
+}/*# sourceMappingURL=lecture22.css.map */

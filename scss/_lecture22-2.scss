@@ -1,0 +1,27 @@
+// ネストで読み込むファイル
+
+p {
+  /* ★_lecture22-2.scssから呼び出したstyle */
+  margin-bottom: 10px;
+
+  @at-root .note {
+    /* ★_lecture22-2.scssから呼び出したstyle */
+    /* @at-rootを使うと、全てすっ飛ばした親の外のセレクタになる↓ */
+    color: #00f;
+    /* @at-rootを使うと、全てすっ飛ばした親の外のセレクタになる↑ */
+  }
+
+  &:hover {
+    /* ★_lecture22-2.scssから呼び出したstyle */
+    /* & で親を辿る↓ */
+    text-decoration: dotted; // (呼び出し先セレクタ) 元親セレクタ:hover
+    /* & で親を辿る↑ */
+  }
+
+  #contents & {
+    /* ★_lecture22-2.scssから呼び出したstyle */
+    /* & の位置に親のセレクタが設定される↓ */
+    text-decoration: dotted; // #contents (呼び出し先セレクタ) 元親セレクタ {}
+    /* & の位置に親のセレクタが設定される↑ */
+  }
+}

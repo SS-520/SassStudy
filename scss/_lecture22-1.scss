@@ -1,0 +1,12 @@
+// partialファイル
+/* ＊ lecture22-1の中身↓ */
+section {
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+#localID {
+  @import 'lecture22-2';
+}
+/* ＊ lecture22-1の中身↑ */
