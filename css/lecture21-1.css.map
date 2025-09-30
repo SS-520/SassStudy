@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["lecture21-1.scss"],"names":[],"mappings":"AAAA;AAGA;EACE","sourcesContent":["/* /_lecture21-1.scss */\n// lecture21.scssで統合するためのpartialファイルとして作成\n\n.style1 {\n  margin: 10px;\n}\n\n// lecture21-2.scssを読み込む\n// パスは相対パスで記述\n// @import 'lecture21-2.scss';\n"],"file":"lecture21-1.css"}

@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["lecture21-2.scss"],"names":[],"mappings":"AAAA;AAGA;EACE","sourcesContent":["/* lecture21-2.scss */\n// lecture21.scssで統合するためのpartialファイルとして作成\n\n.style2 {\n  padding: 20px;\n}\n"],"file":"lecture21-2.css"}

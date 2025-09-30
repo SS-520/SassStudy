@@ -1,0 +1,8 @@
+/* lecture21-2.scss */
+// lecture21.scssで統合するためのpartialファイルとして作成
+
+.style2 {
+  padding: 20px;
+  /* partial化後に追加 */
+  border-bottom: 1px solid #f00;
+}

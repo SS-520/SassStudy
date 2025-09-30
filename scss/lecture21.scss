@@ -1,0 +1,11 @@
+// 運用実態：統括ファイルを作り、そこで対象のscssを全て読み込み１つのcssに出力・HTML側で読み込む
+// partialファイル読み込み時は、ファイル名文頭の「_」と拡張子の記述不要
+
+/* partial：_lecture21-1.scssを読み込み */
+// @import 'lecture21-1';
+// @importの使用が非推奨になる→@useを使用
+@use 'lecture21-1';
+
+/* _lecture21-2.scssを読み込み */
+// @import 'lecture21-2';
+@use 'lecture21-2';

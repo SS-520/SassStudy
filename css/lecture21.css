@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* partial：_lecture21-1.scssを読み込み */
+/* /_lecture21-1.scss */
+.style1 {
+  margin: 10px;
+  /* partial化後に追加 */
+  border-top: 1px solid #000;
+}
+
+/* _lecture21-2.scssを読み込み */
+/* lecture21-2.scss */
+.style2 {
+  padding: 20px;
+  /* partial化後に追加 */
+  border-bottom: 1px solid #f00;
+}/*# sourceMappingURL=lecture21.css.map */

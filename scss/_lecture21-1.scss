@@ -1,0 +1,12 @@
+/* /_lecture21-1.scss */
+// lecture21.scssで統合するためのpartialファイルとして作成
+
+.style1 {
+  margin: 10px;
+  /* partial化後に追加 */
+  border-top: 1px solid #000;
+}
+
+// lecture21-2.scssを読み込む
+// パスは相対パスで記述
+// @import 'lecture21-2.scss';
