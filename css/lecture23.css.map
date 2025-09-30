@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["_lecture23-1.scss","_lecture23-2.scss"],"names":[],"mappings":"AAAA;EACE;;;ACDF;EACE","sourcesContent":["._lecture23-1-scss {\n  padding-top: 0;\n}\n","._lecture23-2-scss {\n  padding-bottom: 0;\n}\n"],"file":"lecture23.css"}

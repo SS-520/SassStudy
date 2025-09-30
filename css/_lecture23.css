@@ -1,0 +1,17 @@
+/* CSS内のインポート */
+/* ※手動作成 */
+
+/* 読み込み対象：_lecture23-1.css */
+/* 書き方いろいろ */
+@import '_lecture23-1.css';
+@import '../css/_lecture23-1.css';
+@import url('_lecture23-1.css');
+@import url(_lecture23-1.css);
+@import '/home/rin/SassStudy/css/_lecture23-1.css';
+
+@import '_lecture23-1.css' print;
+
+/*  cssファイル内で別のcssを読み込む
+    →ブラウザ側での処理が読み込みファイル数行われる
+    ‐リクエスト数が増えて処理が重くなる
+ */

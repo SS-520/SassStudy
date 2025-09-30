@@ -1,0 +1,9 @@
+// partialファイルを読み込み
+
+@use 'lecture23-1';
+@use '_lecture23-2.scss';
+
+// @use url('lecture23-2'); //useではURL指定はできない
+
+// scssでpartialファイルを読み込み・統合
+// →サーバ側で実行されるのでブラウザの処理への影響が最小限
