@@ -1,0 +1,36 @@
+/* ミックスインに複数の引数を渡す */
+
+// 複数引数付きミックスイン定義方法
+// @mixin 定義名($変数名1:デフォルト値, $変数名2:デフォルト値) {スタイル}
+
+// 複数引数で定義
+@mixin font($color: #0f0, $size: 8px) {
+  /* デフォルトcolor： #0f0*/
+  /* デフォルトsize： 8px*/
+  color: $color;
+  font-size: $size;
+}
+
+// 呼び出し（引数指定）
+.main {
+  @include font(#f00, 10px);
+}
+// 呼び出し（デフォルト値）
+.side {
+  @include font;
+}
+
+.first {
+  /* 第一引数のみ指定（第二引数省略） */
+  @include font(#f0f);
+}
+
+// .second {
+//   /* 第二引数のみ指定（第一引数省略）→NG */
+//   @include font(, 20px);
+// }
+.second {
+  /* 第二引数のみ指定（第一引数省略） */
+  // 引数名を明示して渡せばOK
+  @include font($size: 20px);
+}

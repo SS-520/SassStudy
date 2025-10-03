@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* ミックスインに複数の引数を渡す */
+.main {
+  /* デフォルトcolor： #0f0*/
+  /* デフォルトsize： 8px*/
+  color: #f00;
+  font-size: 10px;
+}
+
+.side {
+  /* デフォルトcolor： #0f0*/
+  /* デフォルトsize： 8px*/
+  color: #0f0;
+  font-size: 8px;
+}
+
+.first {
+  /* 第一引数のみ指定（第二引数省略） */
+  /* デフォルトcolor： #0f0*/
+  /* デフォルトsize： 8px*/
+  color: #f0f;
+  font-size: 8px;
+}
+
+.second {
+  /* 第二引数のみ指定（第一引数省略） */
+  /* デフォルトcolor： #0f0*/
+  /* デフォルトsize： 8px*/
+  color: #0f0;
+  font-size: 20px;
+}/*# sourceMappingURL=lecture27.css.map */
