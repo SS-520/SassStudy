@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/* ミックスインとコンテントブロック */
+.item .image {
+  /* 基本の設定 */
+  float: left;
+}
+@media only screen and (max-width: 800px) {
+  .item .image {
+    /* 外部から渡されたコンテントブロックを@contentで展開 */
+    float: none;
+  }
+}
+.item .text {
+  /* 基本の設定 */
+  text-align: left;
+}
+@media only screen and (max-width: 800px) {
+  .item .text {
+    /* 外部から渡されたコンテントブロックを@contentで展開 */
+    text-align: start;
+  }
+}/*# sourceMappingURL=lecture29.css.map */

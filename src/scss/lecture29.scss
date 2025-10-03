@@ -1,0 +1,37 @@
+/* ミックスインとコンテントブロック */
+
+// コンテントブロック：スタイルの集まり
+// @content{スタイル}で記述したスタイルを、@mixinの中身に反映させられる
+// メディアクエリやステート（:hoverや:active）の要素をカプセル化しやすくなる
+
+// サンプル：メディアクエリ
+
+$spWidth: 800px; // メディアクエリの最大幅値
+
+@mixin media($widthMedia) {
+  @media only screen and (max-width: $widthMedia) {
+    /* 外部から渡されたコンテントブロックを@contentで展開 */
+    @content;
+  }
+}
+
+.item {
+  .image {
+    /* 基本の設定 */
+    float: left;
+    @include media($spWidth) {
+      // ミックスインの@media先で展開したいスタイルを保存
+      float: none;
+    }
+  }
+
+  // ミックスインは複数回使える
+  .text {
+    /* 基本の設定 */
+    text-align: left;
+    @include media($spWidth) {
+      // ミックスインの@media先で展開したいスタイルを保存
+      text-align: start;
+    }
+  }
+}
