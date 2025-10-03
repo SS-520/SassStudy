@@ -1,0 +1,30 @@
+/* ミックスインと継承の使い分け */
+
+/* ミックスイン */
+// 共通部品を嵌め込んでいく、コピペに近い感覚
+// 引数を使用して柔軟に展開できる
+@mixin boxMixin {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.box1 {
+  /* ミックスインで定義したスタイルを展開 */
+  @include boxMixin;
+}
+.box2 {
+  /* ミックスインで定義したスタイルを展開(2回目) */
+  @include boxMixin;
+}
+
+/* 継承 */
+// 元セレクタを引継ぎ・拡張していく
+// css出力時に同スタイルのセレクタをグルーピングする
+// あくまで「同じカテゴリのセレクタ」で継承するのがベター
+.button {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.errorButton {
+  @extend .button;
+  background-color: #f00;
+}

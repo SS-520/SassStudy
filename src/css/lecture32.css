@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/* ミックスインと継承の使い分け */
+/* ミックスイン */
+.box1 {
+  /* ミックスインで定義したスタイルを展開 */
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.box2 {
+  /* ミックスインで定義したスタイルを展開(2回目) */
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* 継承 */
+.button, .errorButton {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.errorButton {
+  background-color: #f00;
+}/*# sourceMappingURL=lecture32.css.map */
