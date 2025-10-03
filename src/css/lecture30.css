@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/* 継承の基本 */
+/* 継承元のセレクタ */
+.baseBox, .extendArea {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+/* 継承元のセレクタ（継承専用） */
+.extendArea {
+  padding: 30px;
+  border: 1px dotted #fcc;
+}
+
+.extendArea {
+  /* 継承先で追加したスタイル */
+  background: #ededed;
+}
+
+/* メディアクエリでの継承 */
+@media only screen and (max-width: 768px) {
+  /* メディアクエリで使用する継承元はメディアクエリ内に記述 */
+  .itemOutmedia, .itemMedia {
+    padding: 10px;
+    border: 1px dotted #cfc;
+  }
+}
+/* メディアクエリ内の継承元を継承 *//*# sourceMappingURL=lecture30.css.map */

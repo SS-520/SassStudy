@@ -1,0 +1,48 @@
+/* 継承の基本 */
+
+// 指定セレクタの内容を引き継ぎ・拡張可能な機能
+// @extendを使用
+
+/* 継承元のセレクタ */
+.baseBox {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+/* 継承元のセレクタ（継承専用） */
+// セレクタ記号を%に置き換える
+%baseOnlyBox {
+  padding: 30px;
+  border: 1px dotted #fcc;
+}
+
+.extendArea {
+  @extend .baseBox; // 継承した.extendAreaも、.baseBoxとグループ化してcss出力される
+  @extend %baseOnlyBox; // 継承した.extendAreaも、.baseBoxとグループ化してcss出力される
+
+  /* 継承先で追加したスタイル */
+  background: #ededed; // 差分だけが継承セレクタの内容としてcss出力される
+}
+
+// 単独で成立するセレクタは継承元にできる（連結・属性・擬似クラス・擬似要素含む）
+// 複数で成立するセレクタは継承元にできない（親子や間接など）
+
+/* メディアクエリでの継承 */
+@media only screen and (max-width: 768px) {
+  /* メディアクエリで使用する継承元はメディアクエリ内に記述 */
+  %baseOnlyMediaBox {
+    padding: 10px;
+    border: 1px dotted #cfc;
+  }
+  .itemMedia {
+    // @mediaの外にある継承元は継承できない
+    // メディアクエリ内で記述した継承元を継承
+    @extend %baseOnlyMediaBox; // You may not @extend selectors across media queries.
+  }
+}
+
+/* メディアクエリ内の継承元を継承 */
+.itemOutmedia {
+  // メディアクエリ内のセレクタと、メディアクエリ内にグループ化されて出力される
+  @extend %baseOnlyMediaBox;
+}
