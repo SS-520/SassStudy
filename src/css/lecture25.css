@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* ミックスイン機能 */
+/* ミックスインを呼び出した側のスタイルがcssに出力される */
+.sideArea {
+  border-radius: 10px;
+  background: #ededed;
+  border: 1px solid #666;
+}
+
+/* 何度でも呼び出し可能 */
+.bottomArea {
+  border-radius: 10px;
+  background: #ededed;
+  border: 1px solid #666;
+}
+
+.main .contents {
+  /* 同スコープ内でミックスインを呼び出し */
+  margin-bottom: 20px;
+}/*# sourceMappingURL=lecture25.css.map */

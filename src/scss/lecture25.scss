@@ -1,0 +1,59 @@
+/* ミックスイン機能 */
+
+// スタイル集合を事前に定義したもの
+// →様々な場所から呼び出して再利用可能
+
+// 変数：数値・文字列などの「値」
+// ミックスイン：「スタイル」の集合体
+// →呼び出し時に、呼び出し元から引数を渡せる！
+
+// ミックスインの定義
+// @mixin 定義名 {}
+
+// 定義サンプル
+@mixin roundBox {
+  border-radius: 10px;
+  background: #ededed;
+  border: 1px solid #666;
+}
+
+/* ミックスインを呼び出した側のスタイルがcssに出力される */
+// セレクタ {
+//    @include 定義名;
+// }
+// 呼び出しサンプル
+.sideArea {
+  @include roundBox;
+}
+
+/* 何度でも呼び出し可能 */
+.bottomArea {
+  @include roundBox;
+}
+
+// 命名ルール
+// →変数と同じルール（英数字, -, _, マルチバイト文字）
+// 半角数字開始→NG
+@mixin -box {
+}
+@mixin _box {
+}
+@mixin ボックス {
+}
+// @mixin 1box {}  // Expected identifier.
+
+// セレクタ内でもミックスインの定義は可能
+// →スコープ（同セレクタ）内でのみ呼び出し可能
+.main {
+  @mixin mainBox {
+    margin-bottom: 20px;
+  }
+
+  /* 同スコープ内でミックスインを呼び出し */
+  .contents {
+    @include mainBox; // スコープ内：mainBox呼び出し可能
+  }
+}
+// .side {
+//   @include mainBox; // スコープ外：mainBox呼び出し不可（Undefined mixin.）
+// }
