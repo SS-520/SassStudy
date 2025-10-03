@@ -1,0 +1,89 @@
+/* 可変長 引数 */
+
+// 個数を限定せず、複数の値を渡せる引数
+// 例：text-shadow（カンマ区切で複数の影の値を設定できる）
+
+@use 'sass:string'; // unquote()用
+
+// サンプル：通常
+@mixin shadow1($value) {
+  text-shadow: $value;
+}
+// サンプル：可変長引数対応
+// →引数の数を限定せず処理される
+@mixin shadow2($value...) {
+  text-shadow: $value;
+}
+
+// 複数の影を入れる
+// .mainText1 {
+//   @include shadow(8px 8px 0 #666, 10px -10px 0 #999);
+//   // Only 1 argument allowed, but 2 were passed.
+// }
+
+// 対処法1
+// 定義名( (影1,影2) )と括弧で括り1つの引数として渡す
+.mainText1 {
+  /* 1つの引数として渡す */
+  @include shadow1((8px 8px 0 #666, 10px -10px 0 #999));
+}
+
+// 対処法2
+// 文字列として渡す ("影1, 影2")
+// css出力時に文字列にならないようにunquoteで更に囲む
+// 定義名( string.unquote("影1, 影2") )
+// ※事前に「@use 'sass:string'」を読み込む
+
+.mainText2 {
+  /* 文字列として渡す */
+  @include shadow1(string.unquote('8px 8px 0 #666, 10px -10px 0 #999'));
+}
+
+// 対処法3
+// 可変長引数を使用【本題】
+.mainText3 {
+  /* 可変長引数を使用 */
+  @include shadow2(8px 8px 0 #666, 10px -10px 0 #999);
+}
+
+/* ミックスインの定義引数が複数ある際に、呼び出し元で一気に渡す場合の可変長引数 */
+@mixin box($w: 300px, $pd: 20px, $mg: 40px, $clr: #f00) {
+  width: $w;
+  padding: $pd;
+  margin: $mg;
+  color: $clr;
+}
+
+$value: 200px, 40px; // カンマ区切で2値格納した変数定義
+
+.mainBox {
+  .normalBox {
+    /* デフォルト値で呼び出し */
+    @include box;
+  }
+  .restBox1 {
+    /* 可変長引数で引数を渡す */
+    // @include box($value); // width: 200px, 40px;になってしまう
+    @include box($value...); // width:200px, padding:40pxと想定道理に出力される
+  }
+  .restBox2 {
+    /* 可変長引数で引数を渡す2 */
+    @include box(
+      300px,
+      $value...
+    ); // widthは直書, paddingとmarginに変数の内容が出力される
+  }
+}
+
+// $w: 400px,(直接指定)
+// $pd: 200px,（$valueの1つ目の値）
+// $mg: 40px,（$valueの2つ目の値）
+// $clr: #0f0（直接指定）
+// のような複雑な指定時は、可変長引数を渡すのは向いていない
+// ★ 推奨される記述（ nth()で$valueを展開・番号を指定 ） ★
+// @include box(
+//     $w: 400px,
+//     $pd: nth($value, 1), // $value の 1番目 (200px)
+//     $mg: nth($value, 2), // $value の 2番目 (40px)
+//     $clr: #0f0
+// );

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/* 可変長 引数 */
+.mainText1 {
+  /* 1つの引数として渡す */
+  text-shadow: 8px 8px 0 #666, 10px -10px 0 #999;
+}
+
+.mainText2 {
+  /* 文字列として渡す */
+  text-shadow: 8px 8px 0 #666, 10px -10px 0 #999;
+}
+
+.mainText3 {
+  /* 可変長引数を使用 */
+  text-shadow: 8px 8px 0 #666, 10px -10px 0 #999;
+}
+
+/* ミックスインの定義引数が複数ある際に、呼び出し元で一気に渡す場合の可変長引数 */
+.mainBox .normalBox {
+  /* デフォルト値で呼び出し */
+  width: 300px;
+  padding: 20px;
+  margin: 40px;
+  color: #f00;
+}
+.mainBox .restBox1 {
+  /* 可変長引数で引数を渡す */
+  width: 200px;
+  padding: 40px;
+  margin: 40px;
+  color: #f00;
+}
+.mainBox .restBox2 {
+  /* 可変長引数で引数を渡す2 */
+  width: 300px;
+  padding: 200px;
+  margin: 40px;
+  color: #f00;
+}/*# sourceMappingURL=lecture28.css.map */
