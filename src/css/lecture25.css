@@ -14,7 +14,9 @@
   border: 1px solid #666;
 }
 
-.main .contents {
+.main {
   /* 同スコープ内でミックスインを呼び出し */
+}
+.main .contents {
   margin-bottom: 20px;
 }/*# sourceMappingURL=lecture25.css.map */
