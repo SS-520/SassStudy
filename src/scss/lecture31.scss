@@ -1,0 +1,46 @@
+/* 複数継承と継承の連鎖について */
+
+// 複数継承：複数の元セレクタを同時に一つのセレクタに継承すること
+// →1セレクタに2つ以上の@extendを記述する
+
+/* 元セレクタ1 */
+.textRed {
+  color: #f00;
+}
+/* 元セレクタ2 */
+.borderBox {
+  border: 1px solid #666;
+}
+
+/* 1,2を継承したセレクタ */
+.item {
+  padding: 10px; // .item単独
+  @extend .textRed; // .textRed, .itemでグルーピング
+  @extend .borderBox; // .borderBox, .itemでグルーピング
+}
+
+/* 継承の連鎖 */
+// @extendを展開してるセレクタを、更に別セレクタに@extendする
+
+/* .textRedを継承したセレクタ */
+.note {
+  @extend .textRed; // .textRed, .noteでグルーピング
+  font-size: 12px; // .note単独 → // .note, .errorでグルーピング
+}
+
+/* .noteを継承したセレクタ */
+.error {
+  @extend .note; // .textRed, .note, .errorでグルーピング
+  font-weight: bold; // .error単独
+}
+
+/* オプショナルフラグ */
+// 継承元のセレクタが存在しない → エラー
+// オプショナルにすることでエラー回避
+// ※開発時の一時的なエラー回避程度に使う
+
+// 存在しないセレクタ %box を継承させる
+.area {
+  @extend %box !optional; // 元セレクタが存在しないので、cssにも出力されない
+  border-radius: 5px; // 継承と関係ないので出力される
+}

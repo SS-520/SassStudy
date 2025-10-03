@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* 複数継承と継承の連鎖について */
+/* 元セレクタ1 */
+.textRed, .note, .error, .item {
+  color: #f00;
+}
+
+/* 元セレクタ2 */
+.borderBox, .item {
+  border: 1px solid #666;
+}
+
+/* 1,2を継承したセレクタ */
+.item {
+  padding: 10px;
+}
+
+/* 継承の連鎖 */
+/* .textRedを継承したセレクタ */
+.note, .error {
+  font-size: 12px;
+}
+
+/* .noteを継承したセレクタ */
+.error {
+  font-weight: bold;
+}
+
+/* オプショナルフラグ */
+.area {
+  border-radius: 5px;
+}/*# sourceMappingURL=lecture31.css.map */
