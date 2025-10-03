@@ -1,0 +1,28 @@
+/* ミックスインに引数を設定 */
+@use 'sass:math'; // math.div()を使用するためのモジュールを読み込む
+
+// 引数付きミックスイン定義方法
+// @mixin 定義名($変数名:デフォルト値) {スタイル}
+
+// 引数付きミックスイン呼び出し方法
+// @include 定義名(引数（実数）)
+// @include 定義名() ※デフォルト引数使用
+// @include 定義名  ※デフォルト引数使用
+
+@mixin paddingBox($value: 30px) {
+  /* デフォルト引数：30px */
+  padding: $value; // 引数で指定した値でpaddingを指定できる
+  margin-bottom: math.div($value, 2); // 引数で計算も可能
+}
+
+/* 引数付きでミックスインを呼び出し */
+#main {
+  .mainBox {
+    /* 引数10px指定 */
+    @include paddingBox(10px);
+  }
+  .normalBox {
+    /* デフォルト引数使用 */
+    @include paddingBox();
+  }
+}

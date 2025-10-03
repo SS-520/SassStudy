@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* ミックスインに引数を設定 */
+/* 引数付きでミックスインを呼び出し */
+#main .mainBox {
+  /* 引数10px指定 */
+  /* デフォルト引数：30px */
+  padding: 10px;
+  margin-bottom: 5px;
+}
+#main .normalBox {
+  /* デフォルト引数使用 */
+  /* デフォルト引数：30px */
+  padding: 30px;
+  margin-bottom: 15px;
+}/*# sourceMappingURL=lecture26.css.map */
