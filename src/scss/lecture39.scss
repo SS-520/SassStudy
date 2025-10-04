@@ -1,0 +1,52 @@
+/* 文字処理関数・数値処理関数 */
+
+// 2025/10現在のsassでは、組み込み関数はモジュールに分類されている
+// 組み込み関数使用時は「モジュールの名前空間.関数名(引数)」と記述
+//
+// 各種モジュールの読み込み
+@use 'sass:string'; // 文字列モジュール
+@use 'sass:math'; // 数値モジュール
+
+/* 文字処理関数：頻出編 */
+
+/* quote関数 */
+// 「""」を付けて出力する関数
+.quote {
+  content: string.quote('テスト');
+}
+
+/* unquote関数 */
+// 「""」を除外して出力する関数
+.unquote {
+  content: string.unquote('テスト');
+}
+
+/* 数値処理関数：頻出編 */
+
+/* abs関数 */
+// 絶対値を出力する関数
+.abs {
+  height: 100px - 200px;
+  width: math.abs(100px - 200px);
+}
+
+/* ceil関数 */
+// 数値切り上げ
+.ceil {
+  height: math.div(100px, 6);
+  width: math.ceil(math.div(100px, 6));
+}
+
+/* floor関数 */
+// 数値切り捨て
+.floor {
+  height: math.div(100px, 7);
+  width: math.floor(math.div(100px, 7));
+}
+
+/* round関数 */
+// 四捨五入
+.round {
+  height: math.div(100px, 9);
+  width: math.round(math.div(100px, 9));
+}

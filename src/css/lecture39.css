@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* 文字処理関数・数値処理関数 */
+/* 文字処理関数：頻出編 */
+/* quote関数 */
+.quote {
+  content: "テスト";
+}
+
+/* unquote関数 */
+.unquote {
+  content: テスト;
+}
+
+/* 数値処理関数：頻出編 */
+/* abs関数 */
+.abs {
+  height: -100px;
+  width: 100px;
+}
+
+/* ceil関数 */
+.ceil {
+  height: 16.6666666667px;
+  width: 17px;
+}
+
+/* floor関数 */
+.floor {
+  height: 14.2857142857px;
+  width: 14px;
+}
+
+/* round関数 */
+.round {
+  height: 11.1111111111px;
+  width: 11px;
+}/*# sourceMappingURL=lecture39.css.map */
