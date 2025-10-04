@@ -1,0 +1,24 @@
+/* 変数について */
+
+// sass変数にも「型」がある
+// ミックスインや関数、条件分岐で絡んでくる
+
+// Color, String, Boolean
+
+// Number：pxなど単位がついてもnumber扱い
+
+// List(配列)：「 」「,」「(,)」「[,]」で複数の値を区切ったもの
+
+// Map（連想配列）：ほぼオブジェクト（$変数名: ()）
+$color: (
+  // key:value;
+  text: #333,
+  border: #666,
+  background: #ededed
+);
+
+// Function（関数）
+// 例：get-function("rgb"); // 関数名(引数)
+
+// null型（空の値）
+$null: null;
