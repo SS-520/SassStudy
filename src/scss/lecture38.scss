@@ -1,0 +1,21 @@
+/* 関数の使用 */
+// scss側で最初から組み込まれている関数；ネイティブ関数
+// プロパティの値として使用するケースが多い
+
+@use 'sass:math';
+
+// 関数とmixinの違い
+// 関数⇒値を返す（戻り値）
+// ミックスイン⇒「プロパティ＋値」のセットを返す
+
+@mixin ht($value) {
+  height: $value;
+}
+
+.box {
+  // width: math.div(100px, 3);  // 割り切れない→四捨五入
+  width: math.round(math.div(100px, 3)); // math.round()で四捨五入
+  @include ht(
+    math.div(200px, 3)
+  ); // 「height: $value;」の「プロパティ＋値」を返す（出力）
+}
