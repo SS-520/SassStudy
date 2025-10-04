@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* デフォルトフラグとグローバルフラグ */
+/* 濫用すると可読性が低くなるので注意！ */
+/* デフォルトフラグ (!default) */
+.default {
+  width: 33%;
+  height: 100px;
+}
+
+/* グローバルフラグ (!global) */
+.call {
+  width: 100px;
+}/*# sourceMappingURL=lecture35.css.map */
