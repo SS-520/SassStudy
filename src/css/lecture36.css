@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* 条件分岐 */
+/* $type == 0 */
+.box0 {
+  border: 1px solid #333;
+}
+
+/* $type == 1 */
+.box1 {
+  border: 3px double #f00;
+}
+
+/* $type == 2 */
+.box2 {
+  border: none;
+}/*# sourceMappingURL=lecture36.css.map */
