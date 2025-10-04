@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/* ループ処理 */
+/* for文：through */
+.mt-0-through {
+  margin-top: 0px; /* $i = 0 */
+}
+
+.mt-1-through {
+  margin-top: 10px; /* $i = 1 */
+}
+
+.mt-2-through {
+  margin-top: 20px; /* $i = 2 */
+}
+
+/* for文：to */
+.mt-0-to {
+  margin-top: 0px; /* $i = 0 */
+}
+
+.mt-1-to {
+  margin-top: 10px; /* $i = 1 */
+}
+
+/* 増加単位の操作 */
+.mt-3-3increment {
+  margin-top: 30px; /* $i = 1 */
+}
+
+.mt-6-3increment {
+  margin-top: 60px; /* $i = 2 */
+}
+
+.mt-9-3increment {
+  margin-top: 90px; /* $i = 3 */
+}
+
+/* while文 */
+.pb-0 {
+  padding-bottom: 0px; /* $i = 0 */
+}
+
+.pb-1 {
+  padding-bottom: 5px; /* $i = 1 */
+}
+
+.pb-2 {
+  padding-bottom: 10px; /* $i = 2 */
+}
+
+.pb-3 {
+  padding-bottom: 15px; /* $i = 3 */
+}
+
+.pb-4 {
+  padding-bottom: 20px; /* $i = 4 */
+}
+
+/* each文 */
+/* 配列を定義 */
+.icon-top {
+  background-image: url("../img/top.png");
+}
+
+.icon-qa {
+  background-image: url("../img/qa.png");
+}
+
+.icon-contact {
+  background-image: url("../img/contact.png");
+}/*# sourceMappingURL=lecture37.css.map */

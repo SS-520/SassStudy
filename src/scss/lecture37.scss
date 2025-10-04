@@ -1,0 +1,54 @@
+/* ループ処理 */
+
+// 余白調整クラスとか
+
+/* for文：through */
+// through n のn番を含む
+@for $i from 0 through 2 {
+  // 0,1,2の3回ループ
+  .mt-#{$i}-through {
+    margin-top: $i * 10px; /* $i = #{$i} */
+  }
+}
+
+/* for文：to */
+// through n のn番を含まない
+@for $i from 0 to 2 {
+  // 0,1の2回ループ
+  .mt-#{$i}-to {
+    margin-top: $i * 10px; /* $i = #{$i} */
+  }
+}
+
+/* 増加単位の操作 */
+// scssのfor文は1刻み
+// 増やす単位を増やしたいならループ文の中で操作
+@for $i from 1 through 3 {
+  $index: $i * 3; // 3刻みで増加
+  .mt-#{$index}-3increment {
+    margin-top: $index * 10px; /* $i = #{$i} */
+  }
+}
+
+/* while文 */
+// @while (ループ条件文) {スタイル}
+// 条件文のインクリメントは記述する（not自動）
+$i: 0; // ループ初期値と変数を宣言
+@while ($i < 5) {
+  .pb-#{$i} {
+    padding-bottom: $i * 5px; /* $i = #{$i} */
+  }
+  $i: $i + 1;
+}
+
+/* each文 */
+// 配列要素に対して、要素数文ループして処理を実行
+// @each 要素名（仮置き） in 配列名
+
+/* 配列を定義 */
+$icons: top, qa, contact; //カンマ区切りで定義
+@each $value in $icons {
+  .icon-#{$value} {
+    background-image: url('../img/' + $value + '.png'); // 個別の画像パスを配列から取り出す
+  }
+}
