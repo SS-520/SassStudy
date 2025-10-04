@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/* 色処理関数（頻出編） */
+/* rgba関数 */
+.rgba {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* mix関数 */
+.mix {
+  color: rgb(123.5, 0, 113);
+  color: rgba(123.5, 0, 113, 0.7);
+}
+
+/* lighten関数 */
+.lighten {
+  color: rgb(96.875, 138.2307692308, 160.125);
+}
+
+/* darken関数 */
+.lighten {
+  color: rgb(29.4375, 42.2692307692, 49.0625);
+}/*# sourceMappingURL=lecture40.css.map */

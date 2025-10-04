@@ -1,0 +1,33 @@
+/* 色処理関数（頻出編） */
+
+// 色処理関数のモジュールを呼び出す
+@use 'sass:color';
+
+/* rgba関数 */
+// カラーコードを16進数で書ける！！！！！
+// ※colorモジュールの関数では「ない」
+.rgba {
+  color: rgba(#000, 0.5);
+}
+
+/* mix関数 */
+// 2色を混合した結果を出力
+// colorの名前空間指定必要
+.mix {
+  color: color.mix(#f70000, #0000e2);
+  color: rgba(color.mix(#f70000, #0000e2), 0.7);
+}
+
+/* lighten関数 */
+// モジュール化時に関数名が変更⇒adjustでlightnessを正の値で指定
+// 輝度を上げる
+.lighten {
+  color: color.adjust(#273841, $lightness: 30%);
+}
+
+/* darken関数 */
+// モジュール化時に関数名が変更⇒adjustでlightnessを負の値で指定
+// 輝度を下げる
+.lighten {
+  color: color.adjust(#273841, $lightness: -5%);
+}
