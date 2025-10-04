@@ -1,0 +1,51 @@
+/* 配列・マップ関数 */
+@use 'sass:list';
+@use 'sass:map';
+
+/* 配列 */
+$list1: pen, apple, pineapple; // 配列を定義
+$listA: pen, pineapple; // 配列Aを定義
+$listB: pen, apple; // 配列Bを定義
+
+/* length関数 */
+// 配列に格納されている要素の数を返す
+// sass最新安定板ではモジュール関数として使用
+.length {
+  z-index: list.length($list1);
+}
+
+/* nth関数 */
+// リストの特定の位置の要素を取得
+// sass最新安定板ではモジュール関数として使用
+.nth {
+  content: list.nth($list1, 2);
+}
+
+/* join関数 */
+// 一度に結合できる配列は２つまで
+// sass最新安定板ではモジュール関数として使用
+.join {
+  content: list.join($listA, $listB);
+}
+
+/* append関数 */
+// 配列に要素を追加
+// sass最新安定板ではモジュール関数として使用
+.append {
+  content: list.append($list1, kiwi);
+}
+
+/* マップ関数 */
+// 連想配列に関する関数
+
+// マップ型変数定義
+$map: (
+  bgColor: #ededed,
+  fontColor: #f00,
+  bdColor: #000,
+);
+/* map-get関数 */ // キーを指定してマップから値を取得
+// sass最新安定板ではモジュール関数として使用
+.mapGet {
+  color: map.get($map, fontColor);
+}

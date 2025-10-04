@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/* 配列・マップ関数 */
+/* 配列 */
+/* length関数 */
+.length {
+  z-index: 3;
+}
+
+/* nth関数 */
+.nth {
+  content: apple;
+}
+
+/* join関数 */
+.join {
+  content: pen, pineapple, pen, apple;
+}
+
+/* append関数 */
+.append {
+  content: pen, apple, pineapple, kiwi;
+}
+
+/* マップ関数 */
+/* map-get関数 */
+.mapGet {
+  color: #f00;
+}/*# sourceMappingURL=lecture41.css.map */
