@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* ユーザー定義関数 */
+/* 関数sumを使用 */
+.sum {
+  width: 300px;
+  height: 250px;
+}
+
+/* モジュール関数との併用 */
+/* 関数aveを使用 */
+.ave {
+  margin: 21;
+}
+
+.exist {
+  margin: 0;
+  content: true; /* 自作ave関数 */
+  content: true; /* listモジュール内のlength関数 */
+  content: false; /* func関数 */
+}/*# sourceMappingURL=lecture42.css.map */

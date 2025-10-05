@@ -1,0 +1,54 @@
+/* ユーザー定義関数 */
+@use 'sass:math'; // div, round
+@use 'sass:list'; // length
+@use 'sass:meta';
+
+// 開発者オリジナル機能の関数
+// @function 関数名(引数:初期値) {処理}
+// 戻り値は@return **で定義
+
+// 計算関数
+@function sum($value1: 50px, $value2: 10px) {
+  // 初期値
+  // $value1: 50px
+  // $value2: 10px
+  @return $value1 + $value2;
+}
+
+/* 関数sumを使用 */
+.sum {
+  width: sum(100px, 200px);
+  height: sum($value2: 200px);
+  // $value1:初期値, $value2:指定値
+}
+
+/* モジュール関数との併用 */
+// 配列を引数に取り、配列の要素の中身の平均を算出する関数aveを定義
+@function ave($arry) {
+  $sum: 0; // 合計値の初期値
+  // 配列の要素の数だけループして要素の合計を取得
+  @each $val in $arry {
+    $sum: $sum + $val; // 現時点の合計値に要素の値を加算
+  }
+  // 配列の中身の合計を、配列の要素数で割る
+  // ※平均値が整数でない場合、四捨五入される
+  @return math.round(math.div($sum, list.length($arry)));
+}
+
+/* 関数aveを使用 */
+.ave {
+  $marginList: 10, 25, 14, 34;
+  margin: ave($marginList);
+}
+
+// 自作関数名がモジュール関数で既存か確認する
+.exist {
+  margin: 0;
+  // cssではなくsassの表現形式を優先
+  content: meta.function-exists(ave); /* 自作ave関数 */
+  content: meta.function-exists(
+    length,
+    list
+  ); /* listモジュール内のlength関数 */
+  content: meta.function-exists(func); /* func関数 */
+}
