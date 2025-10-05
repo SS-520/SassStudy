@@ -1,0 +1,44 @@
+.main_area {
+  section {
+    margin-bottom: 30px;
+    overflow: hidden;
+    @include clearfix;
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    li {
+      list-style: disc;
+      margin-left: 20px;
+    }
+
+    .thumb_img {
+      float: left;
+      margin: 0 20px 20px 0;
+    }
+
+    .left_thumb_para {
+      margin-left: 170px;
+
+      @include media('sp') {
+        margin-left: 0;
+      }
+    }
+
+    .read_more {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      background: #f2f2f2;
+      float: right;
+      padding: 5px 10px;
+      text-align: right;
+      @include linkArrow('left', #333);
+    }
+  }
+}

@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 15px;
+  color: #333;
+}
+
+p, li {
+  line-height: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  min-height: 200px - map-get($padding, headerTop) - map-get($padding, headerBottom);
+  width: 100%;
+  background: url('#{map-get($path, img)}header_001.jpg') no-repeat center top;
+  background-size: cover;
+  padding-top: map-get($padding, headerTop);
+  padding-bottom: map-get($padding, headerBottom);
+
+  .title {
+    width: map-get($width, contents);
+    margin: 0 auto;
+    text-align: center;
+    @include textShadow(#FFF, 1);
+
+    @include media("tb") {
+      width: calc(100% - #{map-get($padding, area) * 2});
+    }
+  }
+
+  .sub_title {
+    @extend .title;
+    font-size: 1.2rem;
+  }
+}
+
+.g_navi {
+  height: map-get($gnavi, height);
+  width: 100%;
+  border-bottom: 1px solid #eee;
+
+  @include media("sp") {
+    height: 35px;
+    position: relative;
+  }
+  @include media("sp") {
+    &.show {
+      ul {
+        border-bottom: 1px solid #eee;
+        li {
+          display: block;
+        }
+      }
+    }
+  }
+
+  ul {
+    width: map-get($gnavi, buttonWidth) * 4;
+    margin: 0 auto;
+    overflow: hidden;
+
+    @include media("sp") {
+      width: 100%;
+      background: #FFF;
+      position: absolute;
+      padding-top: 30px;
+      top: 0;
+      left: 0;
+      &::after {
+        content: "▼ Menu";
+        position: absolute;
+        top: 5px;
+        left: 20px;
+      }
+    }
+
+    li {
+      width: map-get($gnavi, buttonWidth);
+      height: map-get($gnavi, height);
+      float: left;
+      text-align: center;
+
+      @include media("sp") {
+        display: none;
+        float: none;
+        width: calc(100% - #{map-get($padding, area) * 2});
+        padding: 0 map-get($padding, area);
+        height: auto;
+      }
+
+      a {
+        display: block;
+        line-height: map-get($gnavi, height);
+
+        @include media("sp") {
+          line-height: inherit;
+        }
+
+        &:hover {
+          background: rgba(#000, 0.1);
+        }
+      }
+    }
+  }
+}
+
+.contents {
+  width: map-get($width, contents);
+  margin: 0 auto;
+  overflow: hidden;
+
+  @include media("tb") {
+    width: 100%;
+  }
+
+  .main_area {
+    width: map-get($width, contents) - map-get($width, sideArea) - map-get($padding, area) * 2;
+    float: left;
+    padding: map-get($padding, area);
+
+    @include media("tb") {
+      width: calc(100% - #{map-get($width, sideArea)} - #{map-get($padding, area) * 2});
+    }
+
+    @include media("sp") {
+      width: calc(100% - #{map-get($padding, area) * 2});
+      float: none;
+    }
+  }
+
+  .side_area {
+    width: map-get($width, sideArea) - map-get($padding, area) * 2;
+    float: right;
+    padding: map-get($padding, area);
+
+    @include media("sp") {
+      width: calc(100% - #{map-get($padding, area) * 2});
+      float: none;
+    }
+
+    %side_area_box {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 10px;
+
+      h3 {
+        margin-bottom: 5px;
+      }
+    }
+
+    .search_area {
+      @extend %side_area_box;
+      margin-bottom: 20px;
+
+      input[type=text] {
+        padding: 3px 5px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        font-size: 0.9rem;
+      }
+
+      button {
+        background: linear-gradient(#f2f2f2, darken(#f2f2f2, 10%));
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 3px 10px;
+      }
+    }
+
+    .category_area {
+      @extend %side_area_box;
+
+      li {
+        & + li {
+          border-top: 1px solid #eee;
+        }
+
+        a {
+          display: block;
+          padding: 3px;
+
+          &:hover {
+            background: rgba(#000, 0.1);
+          }
+        }
+
+        @include linkArrow;
+      }
+    }
+  }
+}
+
+.footer {
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+
+  @include media("tb") {
+    width: calc(100% - #{map-get($padding, area) * 2});
+  }
+}
