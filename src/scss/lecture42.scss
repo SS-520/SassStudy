@@ -1,7 +1,7 @@
 /* ユーザー定義関数 */
 @use 'sass:math'; // div, round
 @use 'sass:list'; // length
-@use 'sass:meta';
+@use 'sass:meta'; // type-of
 
 // 開発者オリジナル機能の関数
 // @function 関数名(引数:初期値) {処理}
@@ -12,12 +12,20 @@
   // 初期値
   // $value1: 50px
   // $value2: 10px
-  @return $value1 + $value2;
+
+  // 引数が両方数値なら計算、それ以外は警告
+  @if (meta.type-of($value1) == number) and (meta.type-of($value2) == number) {
+    @return $value1 + $value2;
+  } @else {
+    @warn "警告：引数の#{$value1}もしくは#{$value2}に数値以外が渡されています"; // 警告だけして処理を続ける
+    @error "エラー：引数の#{$value1}もしくは#{$value2}に数値以外が渡されています"; // エラー発生につき処理停止
+  }
 }
 
 /* 関数sumを使用 */
 .sum {
   width: sum(100px, 200px);
+  // width: sum('100px', 200px); // warn呼び出し実験
   height: sum($value2: 200px);
   // $value1:初期値, $value2:指定値
 }
@@ -29,6 +37,7 @@
   // 配列の要素の数だけループして要素の合計を取得
   @each $val in $arry {
     $sum: $sum + $val; // 現時点の合計値に要素の値を加算
+    @debug $sum; // この時点での合計値を確認
   }
   // 配列の中身の合計を、配列の要素数で割る
   // ※平均値が整数でない場合、四捨五入される
