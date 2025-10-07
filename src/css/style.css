@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* 変数を定義専用パーシャル */
+/* ミックスイン専用のパーシャル */
 /* 全タグの基本設定（初期化） */
 * {
   margin: 0;
@@ -32,10 +33,13 @@ li {
   width: 100%;
   background: url("../../src/img/header_001.jpg") no-repeat center top;
   background-size: cover;
+  padding-top: 40px;
 }
-.header .title {
+.header .title, .header .sub_title {
+  width: 1024px;
   margin: 0 auto;
   text-align: center;
+  text-shadow: 1px 1px 2px white;
 }
 .header .sub_title {
   font-size: 1.2rem;
@@ -80,6 +84,14 @@ li {
   float: right;
   padding: 20px;
 }
+.contents .category_area, .contents .search_area {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+}
+.contents .category_area h3, .contents .search_area h3 {
+  margin-bottom: 5px;
+}
 .contents .search_area {
   margin-bottom: 20px;
 }
@@ -94,6 +106,32 @@ li {
   border-radius: 3px;
   padding: 3px 10px;
 }
+.contents .category_area li + li {
+  border-top: 1px solid #eee;
+}
+.contents .category_area li a {
+  display: block;
+  padding: 3px;
+}
+.contents .category_area li a:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.contents .category_area li {
+  position: relative;
+}
+.contents .category_area li::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -2.5px;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  transform: rotate(45deg);
+}
 
 .footer {
   padding: 20px;
@@ -105,6 +143,10 @@ li {
 #top .main_area section {
   margin-bottom: 30px;
   overflow: hidden;
+}
+#top .main_area section::after {
+  content: "";
+  display: block;
   clear: both;
 }
 #top .main_area section h3 {
@@ -132,4 +174,18 @@ li {
   float: right;
   padding: 5px 10px;
   text-align: right;
+  position: relative;
+}
+#top .main_area section .read_more::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -2.5px;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  transform: rotate(45deg);
 }/*# sourceMappingURL=style.css.map */
