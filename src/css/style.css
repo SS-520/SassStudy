@@ -21,6 +21,10 @@ a {
   color: #333;
 }
 
+li {
+  list-style: none;
+}
+
 /* 個別要素 */
 .header {
   height: 200px;
@@ -42,7 +46,6 @@ a {
   height: 60px;
   float: left;
   text-align: center;
-  list-style: none;
 }
 .g_navi ul li a {
   display: block;
@@ -76,10 +79,22 @@ a {
 #top .main_area section p {
   margin-bottom: 20px;
 }
+#top .main_area section li {
+  list-style: disc;
+  margin-left: 20px;
+}
 #top .main_area section .thumb_img {
   margin: 0 20px 20px 0;
   float: left;
 }
 #top .main_area section .left_thumb_para {
   margin-left: 170px;
+}
+#top .main_area section .read_more {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #f2f2f2;
+  float: right;
+  padding: 5px 10px;
+  text-align: right;
 }/*# sourceMappingURL=style.css.map */

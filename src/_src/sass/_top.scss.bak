@@ -20,25 +20,12 @@
       margin-bottom: 20px;
     }
 
-    li {
-      list-style: disc;
-      margin-left: 20px;
-    }
-
     .thumb_img {
       margin: 0 20px 20px 0;
       float: left;
     }
     .left_thumb_para {
       margin-left: 170px;
-    }
-    .read_more {
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      background: #f2f2f2;
-      float: right;
-      padding: 5px 10px;
-      text-align: right;
     }
   }
 }
