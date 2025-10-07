@@ -6,21 +6,29 @@ $use-padding: true;
 @for $i from 0 through $end {
   @if ($use-margin) {
     .mt#{$i * $step} {
-      margin-top: '#{$step}px' * $i;
+      // margin-top: '#{$step}px' * $i;
+      // margin-top: #{$step} * $i * 1px; // 文字列×数値は計算できないので1pxを最後にかけて単位化してる
+      margin-top: $step * $i * 1px; // #{}で文字列補間がエラーの原因⇒取っ払う
     }
 
     .mb#{$i * $step} {
-      margin-bottom: '#{$step}px' * $i;
+      // margin-bottom: '#{$step}px' * $i;
+      // margin-bottom: #{$step} * $i * 1px;
+      margin-bottom: $step * $i * 1px;
     }
   }
 
   @if ($use-padding) {
     .pt#{$i * $step} {
-      padding-top: '#{$step}px' * $i;
+      // padding-top: '#{$step}px' * $i;
+      // padding-top: #{$step} * $i * 1px;
+      padding-top: $step * $i * 1px;
     }
 
     .pb#{$i * $step} {
-      padding-bottom: '#{$step}px' * $i;
+      // padding-bottom: '#{$step}px' * $i;
+      // padding-bottom: #{$step} * $i * 1px;
+      padding-bottom: $step * $i * 1px;
     }
   }
 }
