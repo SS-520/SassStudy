@@ -1,3 +1,6 @@
+@use 'variables'; // 定義した変数集を読み込む
+@use 'sass:map'; // variablesに定義したmapを利用するため
+
 // 基本的なスタイルを記述していくscss
 
 /* 全タグの基本設定（初期化） */
@@ -29,6 +32,7 @@ li {
 .header {
   height: 200px;
   width: 100%;
+  background: url('#{map.get(variables.$path, img)}header_001.jpg') no-repeat center top;
   background-size: cover;
   .title {
     margin: 0 auto;
@@ -40,21 +44,21 @@ li {
 }
 
 .g_navi {
-  height: 60px;
+  height: variables.$GNaviHeight; // 変数を使用する際に名前空間を指定
   width: 100%;
   border-bottom: 1px solid #eee;
   ul {
-    width: 600px; // 120px*5個
+    width: variables.$GNaviButtonWidth * 4; // 150px*4個
     margin: 0 auto;
     overflow: hidden; //floatへの対応
     li {
-      width: 120px;
-      height: 60px;
+      width: variables.$GNaviButtonWidth;
+      height: variables.$GNaviHeight;
       float: left;
       text-align: center;
       a {
         display: block;
-        line-height: 60px;
+        line-height: variables.$GNaviHeight;
         &:hover {
           // 親セレクタ
           background: rgba(#000, 0.1);
@@ -65,13 +69,19 @@ li {
 }
 
 .contents {
-  width: 1024px;
+  width: map.get(variables.$width, contents); //variablesファイルに定義された$widthマップ、のcontentsキーの中身を取得
+  margin: 0 auto;
   overflow: hidden;
+
   .main_area {
+    width: map.get(variables.$width, contents) - map.get(variables.$width, sideArea) - variables.$AreaPadding * 2;
     float: left;
+    padding: variables.$AreaPadding;
   }
   .side_area {
+    width: map.get(variables.$width, sideArea) - variables.$AreaPadding * 2; // pdの左右の幅を引く
     float: right;
+    padding: variables.$AreaPadding;
   }
   %side_area_box {
     // css出力時には残さない継承元

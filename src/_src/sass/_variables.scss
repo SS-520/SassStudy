@@ -1,0 +1,21 @@
+/* 変数を定義専用パーシャル */
+
+$GNaviHeight: 60px; // グローバルナビの高さ
+$GNaviButtonWidth: 150px; // グローバルナビの幅
+// $ContentsWidth: 1024px; // .contentsの幅 ⇒ $widthマップに統合
+// $SideAreaWidth: 300px; // .sideAreaの幅 ⇒ $widthマップに統合
+$AreaPadding: 20px; // .**_areaのpadding
+
+// 「幅」属性をまとめる⇒map（連想配列）
+$width: (
+  contents: 1024px,
+  // .contentsの幅
+  sideArea: 300px,
+  // .sideAreaの幅
+);
+
+// 使用する各種ファイルのパスを定義
+$path: (
+  img: '../../src/img/',
+  //imgファイルのパス（_variables.scssの位置から見た相対パス）,
+);

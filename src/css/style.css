@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* 変数を定義専用パーシャル */
 /* 全タグの基本設定（初期化） */
 * {
   margin: 0;
@@ -29,6 +30,15 @@ li {
 .header {
   height: 200px;
   width: 100%;
+  background: url("../../src/img/header_001.jpg") no-repeat center top;
+  background-size: cover;
+}
+.header .title {
+  margin: 0 auto;
+  text-align: center;
+}
+.header .sub_title {
+  font-size: 1.2rem;
 }
 
 .g_navi {
@@ -42,7 +52,7 @@ li {
   overflow: hidden;
 }
 .g_navi ul li {
-  width: 120px;
+  width: 150px;
   height: 60px;
   float: left;
   text-align: center;
@@ -58,6 +68,31 @@ li {
 .contents {
   width: 1024px;
   margin: 0 auto;
+  overflow: hidden;
+}
+.contents .main_area {
+  width: 684px;
+  float: left;
+  padding: 20px;
+}
+.contents .side_area {
+  width: 260px;
+  float: right;
+  padding: 20px;
+}
+.contents .search_area {
+  margin-bottom: 20px;
+}
+.contents .search_area input[type=text] {
+  padding: 3px 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+.contents .search_area button {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 3px 10px;
 }
 
 .footer {
