@@ -9,7 +9,8 @@ body {
   color: #333;
 }
 
-p, li {
+p,
+li {
   line-height: 2rem;
 }
 
@@ -72,7 +73,7 @@ li {
 @media only screen and (max-width: 767px) {
   .g_navi ul {
     width: 100%;
-    background: #FFF;
+    background: #fff;
     position: absolute;
     padding-top: 30px;
     top: 0;
@@ -212,62 +213,6 @@ li {
   }
 }
 
-#top .main_area section {
-  margin-bottom: 30px;
-  overflow: hidden;
-}
-#top .main_area section::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-#top .main_area section h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-#top .main_area section p {
-  margin-bottom: 20px;
-}
-#top .main_area section li {
-  list-style: disc;
-  margin-left: 20px;
-}
-#top .main_area section .thumb_img {
-  float: left;
-  margin: 0 20px 20px 0;
-}
-#top .main_area section .left_thumb_para {
-  margin-left: 170px;
-}
-@media only screen and (max-width: 767px) {
-  #top .main_area section .left_thumb_para {
-    margin-left: 0;
-  }
-}
-#top .main_area section .read_more {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  background: #f2f2f2;
-  float: right;
-  padding: 5px 10px;
-  text-align: right;
-  position: relative;
-  padding-left: 20px;
-}
-#top .main_area section .read_more::after {
-  content: "";
-  display: block;
-  width: 5px;
-  height: 5px;
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  margin-top: -2.5px;
-  border-top: 1px solid #333;
-  border-right: 1px solid #333;
-  transform: rotate(45deg);
-}
-
 .pt0 {
   padding-top: 0px;
 }
@@ -314,4 +259,60 @@ li {
 
 .pb50 {
   padding-bottom: 50px;
+}
+
+.main_area section {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.main_area section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.main_area section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.main_area section p {
+  margin-bottom: 20px;
+}
+.main_area section li {
+  list-style: disc;
+  margin-left: 20px;
+}
+.main_area section .thumb_img {
+  float: left;
+  margin: 0 20px 20px 0;
+}
+.main_area section .left_thumb_para {
+  margin-left: 170px;
+}
+@media only screen and (max-width: 767px) {
+  .main_area section .left_thumb_para {
+    margin-left: 0;
+  }
+}
+.main_area section .read_more {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #f2f2f2;
+  float: right;
+  padding: 5px 10px;
+  text-align: right;
+  position: relative;
+  padding-left: 20px;
+}
+.main_area section .read_more::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  margin-top: -2.5px;
+  border-top: 1px solid #333;
+  border-right: 1px solid #333;
+  transform: rotate(45deg);
 }/*# sourceMappingURL=style.css.map */

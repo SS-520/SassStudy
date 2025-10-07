@@ -1,8 +1,11 @@
+@use 'mixins'; // _mixins.scss呼び出し
+@use 'media'; // _media.scss呼び出し
+
 .main_area {
   section {
     margin-bottom: 30px;
     overflow: hidden;
-    @include clearfix;
+    @include mixins.clearfix;
 
     h3 {
       font-size: 1.5rem;
@@ -26,7 +29,7 @@
     .left_thumb_para {
       margin-left: 170px;
 
-      @include media('sp') {
+      @include media.media('sp') {
         margin-left: 0;
       }
     }
@@ -38,7 +41,7 @@
       float: right;
       padding: 5px 10px;
       text-align: right;
-      @include linkArrow('left', #333);
+      @include mixins.linkArrow('left', #333);
     }
   }
 }

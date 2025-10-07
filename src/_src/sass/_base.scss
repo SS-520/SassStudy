@@ -1,3 +1,9 @@
+@use 'variables'; // _variables.scssを読み込み
+@use 'mixins'; // _mixins.scssを読み込み
+@use 'media'; // _media.scssを読み込み
+@use 'sass:color'; // colorモジュール使用（最新環境対応）
+@use 'sass:map'; // mapモジュール使用（最新環境対応）
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +14,8 @@ body {
   color: #333;
 }
 
-p, li {
+p,
+li {
   line-height: 2rem;
 }
 
@@ -22,21 +29,21 @@ li {
 }
 
 .header {
-  min-height: 200px - map-get($padding, headerTop) - map-get($padding, headerBottom);
+  min-height: 200px - map.get(variables.$padding, headerTop) - map.get(variables.$padding, headerBottom);
   width: 100%;
-  background: url('#{map-get($path, img)}header_001.jpg') no-repeat center top;
+  background: url('#{map.get(variables.$path, img)}header_001.jpg') no-repeat center top;
   background-size: cover;
-  padding-top: map-get($padding, headerTop);
-  padding-bottom: map-get($padding, headerBottom);
+  padding-top: map.get(variables.$padding, headerTop);
+  padding-bottom: map.get(variables.$padding, headerBottom);
 
   .title {
-    width: map-get($width, contents);
+    width: map.get(variables.$width, contents);
     margin: 0 auto;
     text-align: center;
-    @include textShadow(#FFF, 1);
+    @include mixins.textShadow(#fff, 1); // _mixins.scssで定義されたmixin textShadowを使用（名前空間を付ける）
 
-    @include media("tb") {
-      width: calc(100% - #{map-get($padding, area) * 2});
+    @include media.media('tb') {
+      width: calc(100% - #{map.get(variables.$padding, area) * 2});
     }
   }
 
@@ -47,15 +54,15 @@ li {
 }
 
 .g_navi {
-  height: map-get($gnavi, height);
+  height: map.get(variables.$gnavi, height);
   width: 100%;
   border-bottom: 1px solid #eee;
 
-  @include media("sp") {
+  @include media.media('sp') {
     height: 35px;
     position: relative;
   }
-  @include media("sp") {
+  @include media.media('sp') {
     &.show {
       ul {
         border-bottom: 1px solid #eee;
@@ -67,19 +74,19 @@ li {
   }
 
   ul {
-    width: map-get($gnavi, buttonWidth) * 4;
+    width: map.get(variables.$gnavi, buttonWidth) * 4;
     margin: 0 auto;
     overflow: hidden;
 
-    @include media("sp") {
+    @include media.media('sp') {
       width: 100%;
-      background: #FFF;
+      background: #fff;
       position: absolute;
       padding-top: 30px;
       top: 0;
       left: 0;
       &::after {
-        content: "▼ Menu";
+        content: '▼ Menu';
         position: absolute;
         top: 5px;
         left: 20px;
@@ -87,24 +94,24 @@ li {
     }
 
     li {
-      width: map-get($gnavi, buttonWidth);
-      height: map-get($gnavi, height);
+      width: map.get(variables.$gnavi, buttonWidth);
+      height: map.get(variables.$gnavi, height);
       float: left;
       text-align: center;
 
-      @include media("sp") {
+      @include media.media('sp') {
         display: none;
         float: none;
-        width: calc(100% - #{map-get($padding, area) * 2});
-        padding: 0 map-get($padding, area);
+        width: calc(100% - #{map.get(variables.$padding, area) * 2});
+        padding: 0 map.get(variables.$padding, area);
         height: auto;
       }
 
       a {
         display: block;
-        line-height: map-get($gnavi, height);
+        line-height: map.get(variables.$gnavi, height);
 
-        @include media("sp") {
+        @include media.media('sp') {
           line-height: inherit;
         }
 
@@ -117,36 +124,36 @@ li {
 }
 
 .contents {
-  width: map-get($width, contents);
+  width: map.get(variables.$width, contents);
   margin: 0 auto;
   overflow: hidden;
 
-  @include media("tb") {
+  @include media.media('tb') {
     width: 100%;
   }
 
   .main_area {
-    width: map-get($width, contents) - map-get($width, sideArea) - map-get($padding, area) * 2;
+    width: map.get(variables.$width, contents) - map.get(variables.$width, sideArea) - map.get(variables.$padding, area) * 2;
     float: left;
-    padding: map-get($padding, area);
+    padding: map.get(variables.$padding, area);
 
-    @include media("tb") {
-      width: calc(100% - #{map-get($width, sideArea)} - #{map-get($padding, area) * 2});
+    @include media.media('tb') {
+      width: calc(100% - #{map.get(variables.$width, sideArea)} - #{map.get(variables.$padding, area) * 2});
     }
 
-    @include media("sp") {
-      width: calc(100% - #{map-get($padding, area) * 2});
+    @include media.media('sp') {
+      width: calc(100% - #{map.get(variables.$padding, area) * 2});
       float: none;
     }
   }
 
   .side_area {
-    width: map-get($width, sideArea) - map-get($padding, area) * 2;
+    width: map.get(variables.$width, sideArea) - map.get(variables.$padding, area) * 2;
     float: right;
-    padding: map-get($padding, area);
+    padding: map.get(variables.$padding, area);
 
-    @include media("sp") {
-      width: calc(100% - #{map-get($padding, area) * 2});
+    @include media.media('sp') {
+      width: calc(100% - #{map.get(variables.$padding, area) * 2});
       float: none;
     }
 
@@ -164,7 +171,7 @@ li {
       @extend %side_area_box;
       margin-bottom: 20px;
 
-      input[type=text] {
+      input[type='text'] {
         padding: 3px 5px;
         border: 1px solid #ddd;
         border-radius: 3px;
@@ -172,7 +179,7 @@ li {
       }
 
       button {
-        background: linear-gradient(#f2f2f2, darken(#f2f2f2, 10%));
+        background: linear-gradient(#f2f2f2, color.adjust(#f2f2f2, $lightness: -10%));
         border: 1px solid #ddd;
         border-radius: 3px;
         padding: 3px 10px;
@@ -196,7 +203,7 @@ li {
           }
         }
 
-        @include linkArrow;
+        @include mixins.linkArrow;
       }
     }
   }
@@ -207,7 +214,7 @@ li {
   width: 100%;
   text-align: center;
 
-  @include media("tb") {
-    width: calc(100% - #{map-get($padding, area) * 2});
+  @include media.media('tb') {
+    width: calc(100% - #{map.get(variables.$padding, area) * 2});
   }
 }
