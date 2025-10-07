@@ -20,6 +20,9 @@ a {
   text-decoration: none;
   color: #333;
 }
+li {
+  list-style: none;
+}
 
 /* 個別要素 */
 // ネスト構造⇒HTML内のある程度まとまった親子関係で書くと楽
@@ -41,7 +44,6 @@ a {
       height: 60px;
       float: left;
       text-align: center;
-      list-style: none;
       a {
         display: block;
         line-height: 60px;
