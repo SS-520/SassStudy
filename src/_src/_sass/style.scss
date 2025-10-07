@@ -1,0 +1,19 @@
+// @import廃止に伴い修正
+// @import 'variables';
+// @import 'mixins';
+// @import 'media';
+// @import 'base';
+
+@use 'variables';
+@use 'mixins';
+@use 'media';
+@use 'base';
+@use 'util';
+@use 'top'; // そのままcssに展開するモジュール
+
+// #top {
+//   // @import 'top' @useに変更するため外に出す
+//   // #topは削除
+// }
+
+// @import 'util';

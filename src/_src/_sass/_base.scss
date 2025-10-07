@@ -1,0 +1,220 @@
+@use 'variables'; // _variables.scssを読み込み
+@use 'mixins'; // _mixins.scssを読み込み
+@use 'media'; // _media.scssを読み込み
+@use 'sass:color'; // colorモジュール使用（最新環境対応）
+@use 'sass:map'; // mapモジュール使用（最新環境対応）
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 15px;
+  color: #333;
+}
+
+p,
+li {
+  line-height: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  min-height: 200px - map.get(variables.$padding, headerTop) - map.get(variables.$padding, headerBottom);
+  width: 100%;
+  background: url('#{map.get(variables.$path, img)}header_001.jpg') no-repeat center top;
+  background-size: cover;
+  padding-top: map.get(variables.$padding, headerTop);
+  padding-bottom: map.get(variables.$padding, headerBottom);
+
+  .title {
+    width: map.get(variables.$width, contents);
+    margin: 0 auto;
+    text-align: center;
+    @include mixins.textShadow(#fff, 1); // _mixins.scssで定義されたmixin textShadowを使用（名前空間を付ける）
+
+    @include media.media('tb') {
+      width: calc(100% - #{map.get(variables.$padding, area) * 2});
+    }
+  }
+
+  .sub_title {
+    @extend .title;
+    font-size: 1.2rem;
+  }
+}
+
+.g_navi {
+  height: map.get(variables.$gnavi, height);
+  width: 100%;
+  border-bottom: 1px solid #eee;
+
+  @include media.media('sp') {
+    height: 35px;
+    position: relative;
+  }
+  @include media.media('sp') {
+    &.show {
+      ul {
+        border-bottom: 1px solid #eee;
+        li {
+          display: block;
+        }
+      }
+    }
+  }
+
+  ul {
+    width: map.get(variables.$gnavi, buttonWidth) * 4;
+    margin: 0 auto;
+    overflow: hidden;
+
+    @include media.media('sp') {
+      width: 100%;
+      background: #fff;
+      position: absolute;
+      padding-top: 30px;
+      top: 0;
+      left: 0;
+      &::after {
+        content: '▼ Menu';
+        position: absolute;
+        top: 5px;
+        left: 20px;
+      }
+    }
+
+    li {
+      width: map.get(variables.$gnavi, buttonWidth);
+      height: map.get(variables.$gnavi, height);
+      float: left;
+      text-align: center;
+
+      @include media.media('sp') {
+        display: none;
+        float: none;
+        width: calc(100% - #{map.get(variables.$padding, area) * 2});
+        padding: 0 map.get(variables.$padding, area);
+        height: auto;
+      }
+
+      a {
+        display: block;
+        line-height: map.get(variables.$gnavi, height);
+
+        @include media.media('sp') {
+          line-height: inherit;
+        }
+
+        &:hover {
+          background: rgba(#000, 0.1);
+        }
+      }
+    }
+  }
+}
+
+.contents {
+  width: map.get(variables.$width, contents);
+  margin: 0 auto;
+  overflow: hidden;
+
+  @include media.media('tb') {
+    width: 100%;
+  }
+
+  .main_area {
+    width: map.get(variables.$width, contents) - map.get(variables.$width, sideArea) - map.get(variables.$padding, area) * 2;
+    float: left;
+    padding: map.get(variables.$padding, area);
+
+    @include media.media('tb') {
+      width: calc(100% - #{map.get(variables.$width, sideArea)} - #{map.get(variables.$padding, area) * 2});
+    }
+
+    @include media.media('sp') {
+      width: calc(100% - #{map.get(variables.$padding, area) * 2});
+      float: none;
+    }
+  }
+
+  .side_area {
+    width: map.get(variables.$width, sideArea) - map.get(variables.$padding, area) * 2;
+    float: right;
+    padding: map.get(variables.$padding, area);
+
+    @include media.media('sp') {
+      width: calc(100% - #{map.get(variables.$padding, area) * 2});
+      float: none;
+    }
+
+    %side_area_box {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 10px;
+
+      h3 {
+        margin-bottom: 5px;
+      }
+    }
+
+    .search_area {
+      @extend %side_area_box;
+      margin-bottom: 20px;
+
+      input[type='text'] {
+        padding: 3px 5px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        font-size: 0.9rem;
+      }
+
+      button {
+        background: linear-gradient(#f2f2f2, color.adjust(#f2f2f2, $lightness: -10%));
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 3px 10px;
+      }
+    }
+
+    .category_area {
+      @extend %side_area_box;
+
+      li {
+        & + li {
+          border-top: 1px solid #eee;
+        }
+
+        a {
+          display: block;
+          padding: 3px;
+
+          &:hover {
+            background: rgba(#000, 0.1);
+          }
+        }
+
+        @include mixins.linkArrow;
+      }
+    }
+  }
+}
+
+.footer {
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+
+  @include media.media('tb') {
+    width: calc(100% - #{map.get(variables.$padding, area) * 2});
+  }
+}
