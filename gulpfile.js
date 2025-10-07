@@ -4,6 +4,9 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass')(require('sass')); // gulp-sass と sass 本体を連携
 const plumber = require('gulp-plumber'); // エラーが発生してもGulpが中断しないようにする
+const browserSync = require('browser-sync').create(); // browserSyncに対応
+// または
+// const bs = require('browser-sync');
 
 // --- 設定ファイル（パスの定義） ---
 const paths = {
@@ -29,13 +32,38 @@ function sassCompile(cb) {
 function watchFiles(cb) {
   // paths.sass のファイルに変更があったら sassCompile タスクを実行する
   watch(paths.sass, sassCompile);
+
+  // 2. コンパイル後のCSSファイル（パスは paths.cssDest の中）の変更を監視し、BrowserSyncに通知する
+  watch(paths.cssDest + '**/*.css').on('change', browserSync.reload);
+
+  // 3. HTMLファイルなどの変更を監視し、BrowserSyncに通知する (必要に応じてパスを調整)
+  watch('*.html').on('change', browserSync.reload);
+  cb();
+}
+
+// BrowserSync起動タスク
+function browserSyncInit(cb) {
+  browserSync.init({
+    // ブラウザを自動で開く
+    open: true,
+    // BrowserSyncが配信するルートディレクトリを指定
+    server: {
+      baseDir: './',
+    },
+    // CSSインジェクションを有効にする
+    notify: false,
+  });
   cb();
 }
 
 // --- コマンド実行時に呼び出されるタスクの定義 ---
 
 // 開発用コマンド: `gulp dev` で実行。ファイルの変更を監視しながら開発する
-exports.dev = series(sassCompile, watchFiles);
+exports.dev = series(
+  sassCompile, // 最初にSassをコンパイル
+  browserSyncInit, // BrowserSyncを起動
+  watchFiles, // ファイル監視を開始
+);
 
 // 本番ビルド用コマンド: `gulp build` で実行。コンパイルのみ行う
 exports.build = sassCompile;
