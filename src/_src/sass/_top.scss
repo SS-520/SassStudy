@@ -1,7 +1,9 @@
 @use 'mixins'; // _mixins.scss呼び出し
 @use 'media'; // _media.scss呼び出し
 
-.main_area {
+// style.scssで呼び出し時に#top{}内での呼び出しを削除
+// ⇒ セレクタに#topを付けて同じ動きになるよう調整
+#top .main_area {
   section {
     margin-bottom: 30px;
     overflow: hidden;
