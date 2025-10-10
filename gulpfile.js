@@ -5,8 +5,11 @@ const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass')(require('sass')); // gulp-sass と sass 本体を連携
 const plumber = require('gulp-plumber'); // エラーが発生してもGulpが中断しないようにする
 const browserSync = require('browser-sync').create(); // browserSyncに対応
+const postcss = require('gulp-postcss'); // gulp-postcss を読み込む
+const cssnano = require('cssnano'); // cssnano を読み込む
 // または
 // const bs = require('browser-sync');
+const sortMediaQueries = require('postcss-sort-media-queries'); // postcss-sort-media-querieを読み込む
 
 // --- 設定ファイル（パスの定義） ---
 const paths = {
@@ -21,9 +24,36 @@ const paths = {
 
 // Sassコンパイルタスク
 function sassCompile(cb) {
+  const plugins = [
+    // 1. Media Queryのソートと結合を最初に行う
+    sortMediaQueries({
+      // ★ 任意: ソート順を指定（'mobile-first'がデフォルト）
+      sort: 'mobile-first',
+    }),
+    // 2. ベンダープレフィックス自動付与（autoprefixerなど、必要な場合）
+    // require('autoprefixer'),
+    // 3. 最後に cssnano で圧縮・最適化を行う
+    // ※圧縮を無効化または緩和設定追加
+    cssnano({
+      preset: [
+        'default',
+        {
+          // 改行やスペースの削除を含む、全ての圧縮・最適化を無効化する設定
+          // 開発環境では、この設定で圧縮を停止させます。
+          normalizeWhitespace: false, // ホワイトスペースの削除を無効化（最重要）
+          discardComments: { removeAll: false }, // コメント削除を無効化
+          discardUnused: false,
+          minifyFontValues: false,
+          reduceIdents: false, // セレクタや変数名の短縮化を無効化
+          mergeLonghand: false, // ロングハンドからショートハンドへの変換を無効化
+        },
+      ],
+    }),
+  ];
   return src(paths.sass, { sourcemaps: true }) // ソースマップを有効にしてSassファイルを読み込む
     .pipe(plumber()) // エラー発生時にGulpが停止するのを防ぐ
     .pipe(sass({ outputStyle: 'expanded' })) // Sassをコンパイル ※後の可読性を考慮しexpanded設定 (outputStyle: 'compressed'で圧縮も可能)
+    .pipe(postcss(plugins)) // PostCSSプラグインのリストを適用
     .pipe(dest(paths.cssDest, { sourcemaps: '.' })); // コンパイル後のCSSを出力し、ソースマップを同じ場所に保存
   // タスク完了を示すコールバック関数は、return src... でストリームを返す場合は省略できます
 }
