@@ -1,5 +1,6 @@
 /* TOPページ専用css */
 @use 'mixins'; // 使用するミックスインを読み込み
+@use 'media'; // 定義したメディアクエリ集を読み込む
 @use 'base'; // 基本スタイルは共通
 
 // 全てID=TOPの中身に適用する
@@ -31,6 +32,10 @@
     }
     .left_thumb_para {
       margin-left: 170px;
+
+      @include media.media('sp') {
+        margin-left: 0;
+      }
     }
     .read_more {
       border: 1px solid #ccc;

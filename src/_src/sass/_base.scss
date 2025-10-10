@@ -1,6 +1,7 @@
 @use 'variables'; // 定義した変数集を読み込む
 @use 'mixins'; // 定義したミックスイン集を読み込む
 @use 'media'; // 定義したメディアクエリ集を読み込む
+@use 'sass:color'; // variablesに定義したmapを利用するため
 @use 'sass:map'; // variablesに定義したmapを利用するため
 
 // 基本的なスタイルを記述していくscss
@@ -32,17 +33,21 @@ li {
 /* 個別要素 */
 // ネスト構造⇒HTML内のある程度まとまった親子関係で書くと楽
 .header {
-  height: 200px;
+  min-height: 200px - map.get(variables.$padding, headerTop) - map.get(variables.$padding, headerBottom);
   width: 100%;
   background: url('#{map.get(variables.$path, img)}header_001.jpg') no-repeat center top;
   background-size: cover;
   padding-top: map.get(variables.$padding, headerTop);
+  padding-bottom: map.get(variables.$padding, headerBottom);
 
   .title {
     width: map.get(variables.$width, contents);
     margin: 0 auto;
     text-align: center;
     @include mixins.textShadow(#fff, 1);
+    @include media.media('tb') {
+      width: calc(100% - #{map.get(variables.$padding, area) * 2});
+    }
   }
   .sub_title {
     @extend .title; // .titleのスタイル継承（includeの内容も継承）
@@ -60,14 +65,42 @@ li {
     // width: variables.$GNaviButtonWidth * 4; // 150px*4個
     margin: 0 auto;
     overflow: hidden; //floatへの対応
+    @include media.media('sp') {
+      width: 100%;
+      background: #fff;
+      position: absolute;
+      padding-top: 30px;
+      top: 0;
+      left: 0;
+      &::after {
+        content: '▼ Menu';
+        position: absolute;
+        top: 5px;
+        left: 20px;
+      }
+    }
     li {
       width: map.get(variables.$gnavi, buttonWidth);
       height: map.get(variables.$gnavi, height);
       float: left;
       text-align: center;
+
+      @include media.media('sp') {
+        display: none;
+        float: none;
+        width: calc(100% - #{map.get(variables.$padding, area) * 2});
+        padding: 0 map.get(variables.$padding, area);
+        height: auto;
+      }
+
       a {
         display: block;
         line-height: map.get(variables.$gnavi, height);
+
+        @include media.media('sp') {
+          line-height: inherit;
+        }
+
         &:hover {
           // 親セレクタ
           background: rgba(#000, 0.1);
@@ -134,6 +167,7 @@ li {
     }
 
     button {
+      background: linear-gradient(#f2f2f2, color.adjust(#f2f2f2, $lightness: -10%));
       border: 1px solid #ddd;
       border-radius: 3px;
       padding: 3px 10px;
@@ -164,4 +198,8 @@ li {
   padding: 20px;
   width: 100%;
   text-align: center;
+
+  @include media.media('tb') {
+    width: calc(100% - #{map.get(variables.$padding, area) * 2});
+  }
 }
