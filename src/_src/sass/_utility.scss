@@ -1,0 +1,33 @@
+/* ユーティリティ機能専用パーシャル */
+
+$end: 5;
+$step: 10;
+
+// margin, paddingをそれぞれ使用不使用を選択可能にする
+$useMargin: true;
+$usePadding: false;
+
+/* #{$step}px毎の上下余白・（0px～#{$end * $step}px）↓ */
+// step pxごとのmargin-top調整クラスを作成
+//  start~endまでループ
+@for $i from 0 through $end {
+  // marginを書き出すか否か
+  @if ($useMargin) {
+    .mt#{$i * $step} {
+      margin-top: $i * $step * 1px; // 単位設定用1px
+    }
+    .mb#{$i * $step} {
+      margin-bottom: $i * $step * 1px; // 単位設定用1px
+    }
+  }
+  // paddingを書き出すか否か
+  @if ($usePadding) {
+    .pt#{$i * $step} {
+      padding-top: $i * $step * 1px; // 単位設定用1px
+    }
+    .pb#{$i * $step} {
+      padding-bottom: $i * $step * 1px; // 単位設定用1px
+    }
+  }
+}
+/* #{$step}px毎の上下余白・（0px～#{$end * $step}px）↑ */

@@ -19,7 +19,20 @@
 }
 
 // オーバーカーソル中のリンクに矢印を表示する
-@mixin linkArrow {
+// 引数で書き出し先の左右を制御する（デフォ：right）
+// 引数で表示色を制御する（デフォ：#aaa）
+@mixin linkArrow($side: 'right', $color: #aaa) {
+  // 想定外引数への警告
+  @if ($side != 'right' and $side != 'left') {
+    @warn "位置指定の引数は'right'か'left'のみ指定可能";
+  }
+
+  // 書き出し先の分岐
+  @if ($side == 'right') {
+    padding-right: 20px;
+  } @else if ($side == 'left') {
+    padding-left: 20px;
+  }
   position: relative; // position: absolute;適用準備
   &::after {
     // 呼び出し元（親セレクタ）に対して適用
@@ -29,10 +42,15 @@
     height: 5px;
     position: absolute;
     top: 50%;
-    right: 10px;
     margin-top: -2.5px;
-    border-top: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    border-top: 1px solid $color;
+    border-right: 1px solid $color;
     transform: rotate(45deg); // 45度回転
+    // 書き出し先の分岐
+    @if ($side == 'right') {
+      right: 10px;
+    } @else if ($side == 'left') {
+      left: 10px;
+    }
   }
 }

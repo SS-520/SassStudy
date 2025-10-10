@@ -39,7 +39,7 @@
       float: right;
       padding: 5px 10px;
       text-align: right;
-      @include mixins.linkArrow;
+      @include mixins.linkArrow('left', #333);
     }
   }
 }

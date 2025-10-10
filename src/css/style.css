@@ -117,6 +117,7 @@ li {
   background: rgba(0, 0, 0, 0.1);
 }
 .contents .category_area li {
+  padding-right: 20px;
   position: relative;
 }
 .contents .category_area li::after {
@@ -126,11 +127,11 @@ li {
   height: 5px;
   position: absolute;
   top: 50%;
-  right: 10px;
   margin-top: -2.5px;
-  border-top: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  border-top: 1px solid #aaa;
+  border-right: 1px solid #aaa;
   transform: rotate(45deg);
+  right: 10px;
 }
 
 .footer {
@@ -174,6 +175,7 @@ li {
   float: right;
   padding: 5px 10px;
   text-align: right;
+  padding-left: 20px;
   position: relative;
 }
 #top .main_area section .read_more::after {
@@ -183,9 +185,61 @@ li {
   height: 5px;
   position: absolute;
   top: 50%;
-  right: 10px;
   margin-top: -2.5px;
-  border-top: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+  border-top: 1px solid #333;
+  border-right: 1px solid #333;
   transform: rotate(45deg);
-}/*# sourceMappingURL=style.css.map */
+  left: 10px;
+}
+
+/* ユーティリティ機能専用パーシャル */
+/* 10px毎の上下余白・（0px～50px）↓ */
+.mt0 {
+  margin-top: 0px;
+}
+
+.mb0 {
+  margin-bottom: 0px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mb30 {
+  margin-bottom: 30px;
+}
+
+.mt40 {
+  margin-top: 40px;
+}
+
+.mb40 {
+  margin-bottom: 40px;
+}
+
+.mt50 {
+  margin-top: 50px;
+}
+
+.mb50 {
+  margin-bottom: 50px;
+}
+
+/* 10px毎の上下余白・（0px～50px）↑ *//*# sourceMappingURL=style.css.map */
