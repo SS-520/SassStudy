@@ -1,5 +1,6 @@
 @use 'variables'; // 定義した変数集を読み込む
 @use 'mixins'; // 定義したミックスイン集を読み込む
+@use 'media'; // 定義したメディアクエリ集を読み込む
 @use 'sass:map'; // variablesに定義したmapを利用するため
 
 // 基本的なスタイルを記述していくscss
@@ -81,15 +82,36 @@ li {
   margin: 0 auto;
   overflow: hidden;
 
+  /* タブレット対応 */
+  @include media.media('tb') {
+    width: 100%;
+  }
+
   .main_area {
     width: map.get(variables.$width, contents) - map.get(variables.$width, sideArea) - map.get(variables.$padding, area) * 2;
     float: left;
     padding: map.get(variables.$padding, area);
+
+    /* タブレット対応 */
+    @include media.media('tb') {
+      width: calc(100% - #{map.get(variables.$width, sideArea)} - #{map.get(variables.$padding, area)} * 2);
+    }
+    /* スマホ対応 */
+    @include media.media('sp') {
+      width: calc(100% - #{map.get(variables.$padding, area)} * 2);
+      float: none;
+    }
   }
   .side_area {
     width: map.get(variables.$width, sideArea) - map.get(variables.$padding, area) * 2; // pdの左右の幅を引く
     float: right;
     padding: map.get(variables.$padding, area);
+
+    /* スマホ対応 */
+    @include media.media('sp') {
+      width: calc(100% - #{map.get(variables.$padding, area)} * 2);
+      float: none;
+    }
   }
   %side_area_box {
     // css出力時には残さない継承元

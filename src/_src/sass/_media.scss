@@ -1,0 +1,18 @@
+/* メディアクエリ専用パーシャル */
+@use 'sass:map'; // mapモジュール使用
+
+// breakpoint定義（マップ定義）
+$breakPoint: (
+  // スマホ
+  sp: 'only screen and (max-width:767px)',
+  // タブレット
+  tb: 'only screen and (max-width:1024px)'
+);
+
+// ブレイクポイントを設定するミックスイン作成
+// 引数：デバイス種
+@mixin media($device) {
+  @media #{map.get($breakPoint, $device)} {
+    @content; // 外部から渡されたコンテントブロックを展開
+  }
+}
